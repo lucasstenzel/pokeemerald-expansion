@@ -1,0 +1,67 @@
+raw `
+.set LOCALID_JENKINS, 1
+.set LOCALID_SNAKE, 2
+
+MossdeepCity_BetaTesterHouse_B1F_MapScripts::
+	.byte 0
+`
+
+script MossdeepCity_BetaTesterHouse_B1F_EventScript_Jenkins{
+	trainerbattle_single(TRAINER_JENKINS, Jenkins_Intro, Jenkins_Outro, MossdeepCity_BetaTesterHouse_B1F_EventScript_JenkinsDefeated)
+	msgbox(PostBattle_Jenkins, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script MossdeepCity_BetaTesterHouse_B1F_EventScript_JenkinsDefeated{
+	msgbox(Jenkins_RewardText, MSGBOX_DEFAULT)
+	giveitem(ITEM_GARCHOMPITE)
+	msgbox(PostBattle_Jenkins, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+text Jenkins_RewardText{
+	"Not bad! Here, I'll share\n"
+	"some of my loot with you."
+}
+
+script MossdeepCity_BetaTesterHouse_B1F_EventScript_Snake{
+	trainerbattle_single(TRAINER_SNAKE, Snake_Intro, Snake_Outro, MossdeepCity_BetaTesterHouse_B1F_EventScript_SnakeDefeated)
+	msgbox(PostBattle_Snake, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script MossdeepCity_BetaTesterHouse_B1F_EventScript_SnakeDefeated{
+	setflag(FLAG_SNAKE_DEFEATED)
+	msgbox(PostBattle_Snake, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+text Jenkins_Intro{
+	"Alright Chumps, let's do this.\n"
+	"LEEROOOOOOOOOOOY..."
+}
+
+text Jenkins_Outro{
+	"Now you can finally play the game."
+}
+
+text PostBattle_Jenkins{
+	"You can thank Bruce for that."
+}
+
+text Snake_Intro{
+	"Kept you waiting, huh?"
+}
+
+text Snake_Outro{
+	"Surprised you've made it this far."
+}
+
+text PostBattle_Snake{
+	"I'll let you in on a secret. Deep in the\n"
+	"North-East area of the Safari Zone, there's\l"
+	"a smashable rock in a nook. There's a\l"
+	"hidden staircase behind it."
+}

@@ -1,0 +1,56 @@
+raw `
+.set LOCALID_DIALGA, 1
+
+TurnbackCave_Blue_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, TurnbackCave_Blue_OnResume
+	map_script MAP_SCRIPT_ON_TRANSITION, TurnbackCave_Blue_OnTransition
+	.byte 0
+
+TurnbackCave_Blue_OnResume:
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, TurnbackCave_Blue_EventScript_TryRemoveDialga
+	end
+
+TurnbackCave_Blue_EventScript_TryRemoveDialga::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
+	removeobject VAR_LAST_TALKED
+	return
+
+TurnbackCave_Blue_OnTransition:
+	call_if_unset FLAG_DEFEATED_DIALGA, TurnbackCave_Blue_EventScript_ShowDialga
+	end
+
+TurnbackCave_Blue_EventScript_ShowDialga::
+	clearflag FLAG_HIDE_DIALGA
+	return
+
+TurnbackCave_Blue_EventScript_Dialga::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_DIALGA, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_DIALGA, 45
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, TurnbackCave_Blue_EventScript_DefeatedDialga
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, TurnbackCave_Blue_EventScript_RanFromDialga
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, TurnbackCave_Blue_EventScript_RanFromDialga
+	setflag FLAG_DEFEATED_DIALGA
+	release
+	end
+
+TurnbackCave_Blue_EventScript_DefeatedDialga::
+	setflag FLAG_DEFEATED_DIALGA
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+
+TurnbackCave_Blue_EventScript_RanFromDialga::
+	setvar VAR_0x8004, SPECIES_DIALGA
+	goto Common_EventScript_LegendaryFlewAway
+	end
+`

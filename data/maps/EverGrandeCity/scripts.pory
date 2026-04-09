@@ -40,6 +40,7 @@ EverGrandeCity_EventScript_May::
 	case 0, EverGrandeCity_EventScript_BattleMayTreecko
 	case 1, EverGrandeCity_EventScript_BattleMayTorchic
 	case 2, EverGrandeCity_EventScript_BattleMayMudkip
+	case 3, EverGrandeCity_EventScript_BattleMayGible
 	end
 
 EverGrandeCity_EventScript_MayAskToBattleAgain::
@@ -71,6 +72,11 @@ EverGrandeCity_EventScript_BattleMayMudkip::
 	goto EverGrandeCity_EventScript_DefeatedMay
 	end
 
+EverGrandeCity_EventScript_BattleMayGible::
+	trainerbattle_no_intro TRAINER_MAY_EVERGRANDE_GIBLE, EverGrandeCity_Text_MayDefeat
+	goto EverGrandeCity_EventScript_DefeatedMay
+	end
+
 EverGrandeCity_EventScript_DefeatedMay::
 	setflag FLAG_EVERGRANDE_CITY_BEAT_RIVAL
 	goto_if_set FLAG_BEAT_DAWN_EVERGRANDE, EverGrandeCity_EventScript_RivalsFlyAway
@@ -88,6 +94,7 @@ EverGrandeCity_EventScript_Brendan::
 	case 0, EverGrandeCity_EventScript_BattleBrendanTreecko
 	case 1, EverGrandeCity_EventScript_BattleBrendanTorchic
 	case 2, EverGrandeCity_EventScript_BattleBrendanMudkip
+	case 3, EverGrandeCity_EventScript_BattleBrendanGible
 	end
 
 EverGrandeCity_EventScript_BrendanAskToBattleAgain::
@@ -116,6 +123,11 @@ EverGrandeCity_EventScript_BattleBrendanTorchic::
 
 EverGrandeCity_EventScript_BattleBrendanMudkip::
 	trainerbattle_no_intro TRAINER_BRENDAN_EVERGRANDE_MUDKIP, EverGrandeCity_Text_BrendanDefeat
+	goto EverGrandeCity_EventScript_DefeatedBrendan
+	end
+
+EverGrandeCity_EventScript_BattleBrendanGible::
+	trainerbattle_no_intro TRAINER_BRENDAN_EVERGRANDE_GIBLE, EverGrandeCity_Text_BrendanDefeat
 	goto EverGrandeCity_EventScript_DefeatedBrendan
 	end
 

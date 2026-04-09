@@ -1074,6 +1074,7 @@ EventScript_SelectWithoutRegisteredItem::
 	end
 
 	.include "data/scripts/field_poison.inc"
+	.include "data/scripts/epic_battle_roamer.inc"
 
 Common_EventScript_NopReturn::
 	return
@@ -1194,3 +1195,13 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/SootopolisCity_ChampHouse/scripts.inc"
 
 	.include "data/maps/FieryPath_BackRoom/scripts.inc"
+
+	.include "data/maps/MossdeepCity_BetaTesterHouse_B1F/scripts.inc"
+
+	.include "data/maps/TurnbackCave_Entrance/scripts.inc"
+
+	.include "data/maps/TurnbackCave_Blue/scripts.inc"
+
+	.include "data/maps/TurnbackCave_Red/scripts.inc"
+
+	.include "data/maps/TurnbackCave_Gray/scripts.inc"

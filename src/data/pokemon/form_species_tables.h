@@ -723,6 +723,16 @@ static const u16 sSceptileFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_TREECKO
 
+#if P_FAMILY_SPRIGATITO
+static const u16 sMeowscaradaFormSpeciesIdTable[] = {
+    SPECIES_MEOWSCARADA,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_MEOWSCARADA_MEGA,
+#endif
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_SPRIGATITO
+
 #if P_FAMILY_TORCHIC
 static const u16 sBlazikenFormSpeciesIdTable[] = {
     SPECIES_BLAZIKEN,

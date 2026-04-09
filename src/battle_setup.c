@@ -641,6 +641,18 @@ void BattleSetup_StartLegendaryBattle(void)
     case SPECIES_MEW:
         CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
         break;
+    case SPECIES_DIALGA:
+    case SPECIES_DIALGA_ORIGIN:
+    case SPECIES_DIALGA_PRIMAL:
+    case SPECIES_PALKIA:
+    case SPECIES_PALKIA_ORIGIN:
+    case SPECIES_PALKIA_PRIMAL:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_DP_VS_DIALGA_PALKIA);
+        break;
+    case SPECIES_GIRATINA_ALTERED:
+    case SPECIES_GIRATINA_ORIGIN:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_PL_VS_GIRATINA);
+        break;
     }
 
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);

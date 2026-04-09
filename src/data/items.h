@@ -5558,6 +5558,23 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_Sceptilite,
     },
 
+    [ITEM_MEOWSCARADITE] =
+    {
+        .name = _("Meowscaradite"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Meowscarada to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_MEGA_STONES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Meowscaradite,
+        .iconPalette = gItemIconPalette_Meowscaradite,
+    },
+
     [ITEM_BLAZIKENITE] =
     {
         .name = _("Blazikenite"),

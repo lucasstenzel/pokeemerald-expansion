@@ -1801,6 +1801,7 @@ LittlerootTown_EventScript_GiveRunningShoes::
 # 903 "data/maps/LittlerootTown/scripts.pory"
 # 906 "data/maps/LittlerootTown/scripts.pory"
 	setflag FLAG_RECEIVED_RUNNING_SHOES
+	setflag FLAG_SYS_B_DASH
 # 907 "data/maps/LittlerootTown/scripts.pory"
 	giveitem ITEM_INFINITE_CANDY
 	setflag FLAG_SYS_DEXNAV_GET

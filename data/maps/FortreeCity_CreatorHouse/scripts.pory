@@ -333,6 +333,7 @@ script FortreeCity_CreatorHouse_EventScript_XGiveItems{
 	giveitem(ITEM_TORTERRITE)
 	giveitem(ITEM_VENUSAURITE)
 	giveitem(ITEM_SCEPTILITE)
+	giveitem(ITEM_MEOWSCARADITE)
 	giveitem(ITEM_TM_EARTHQUAKE)
 	giveitem(ITEM_CHOICE_BAND)
 	msgbox(X_ExplainItems)

@@ -19,7 +19,7 @@ Route130_OnTransition:
 # 10 "data/maps/Route130/scripts.pory"
 	call_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, Route130_EventScript_CheckSetAbnormalWeather
 # 11 "data/maps/Route130/scripts.pory"
-	goto_if_set FLAG_IS_CHAMPION, Route130_EventScript_SetMirageIslandLayout
+	goto_if_set FLAG_SNAKE_DEFEATED, Route130_EventScript_SetMirageIslandLayout
 # 12 "data/maps/Route130/scripts.pory"
 @ Mirage Island isn't currently visible, hide any objects on the island. Only the first flag is actually associated with anything.
 # 13 "data/maps/Route130/scripts.pory"

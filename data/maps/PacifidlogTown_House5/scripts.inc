@@ -13,7 +13,7 @@ PacifidlogTown_House5_EventScript_MirageIslandWatcher::
 # 7 "data/maps/PacifidlogTown_House5/scripts.pory"
 	faceplayer
 # 8 "data/maps/PacifidlogTown_House5/scripts.pory"
-	goto_if_set FLAG_IS_CHAMPION, PacifidlogTown_House5_EventScript_MirageIslandPresent
+	goto_if_set FLAG_SNAKE_DEFEATED, PacifidlogTown_House5_EventScript_MirageIslandPresent
 # 9 "data/maps/PacifidlogTown_House5/scripts.pory"
 	msgbox PacifidlogTown_House5_Text_CantSeeMirageIslandToday, MSGBOX_DEFAULT
 # 10 "data/maps/PacifidlogTown_House5/scripts.pory"

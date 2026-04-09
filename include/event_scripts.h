@@ -582,6 +582,7 @@ extern const u8 LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidal
 extern const u8 RustboroCity_Gym_EventScript_RegisterRoxanne[];
 extern const u8 MossdeepCity_SpaceCenter_2F_EventScript_RivalRayquazaCall[];
 extern const u8 SSTidalCorridor_EventScript_ReachedStepCount[];
+extern const u8 EventScript_EpicBattleRoamerRelease[];
 extern const u8 EventScript_FallDownHoleMtPyre[];
 
 // Secret Base

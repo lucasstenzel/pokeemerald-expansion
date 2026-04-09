@@ -188,7 +188,67 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         )
         .levelUpLearnset = sMeowscaradaLevelUpLearnset,
         .teachableLearnset = sMeowscaradaTeachableLearnset,
+        .formSpeciesIdTable = sMeowscaradaFormSpeciesIdTable,
+        .formChangeTable = sMeowscaradaFormChangeTable,
     },
+#if P_MEGA_EVOLUTIONS
+    [SPECIES_MEOWSCARADA_MEGA] =
+    {
+        .baseHP        = 80,
+        .baseAttack    = 190,
+        .baseDefense   = 70,
+        .baseSpeed     = 150,
+        .baseSpAttack  = 70,
+        .baseSpDefense = 70,
+        .types = MON_TYPES(TYPE_GRASS, TYPE_DARK),
+        .catchRate = 45,
+        .expYield = 265,
+        .evYield_Speed = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_GRASS),
+        .abilities = { ABILITY_GHILLIE_SUIT,  ABILITY_GHILLIE_SUIT,  ABILITY_GHILLIE_SUIT },
+        .bodyColor = BODY_COLOR_GREEN,
+        .speciesName = _("Meowscarada"),
+        .cryId = CRY_MEOWSCARADA,
+        .natDexNum = NATIONAL_DEX_MEOWSCARADA,
+        .categoryName = _("Magician"),
+        .height = 18,
+        .weight = 360,
+        .description = COMPOUND_STRING(
+            "Mega evolution has turned this Pokémon's\n"
+            "fur into a stealth suit. This not only\n"
+            "helps Meowscarada when landing crits,\n"
+            "but also protects it from harsh elements."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_MeowscaradaMega,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_Meowscarada,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_MeowscaradaMega,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        //.backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_MeowscaradaMega,
+        .shinyPalette = gMonShinyPalette_MeowscaradaMega,
+        .iconSprite = gMonIcon_MeowscaradaMega,
+        .iconPalIndex = 4,
+        SHADOW(-3, 14, SHADOW_SIZE_S)
+        FOOTPRINT(Meowscarada)
+        .isMegaEvolution = TRUE,
+        .levelUpLearnset = sMeowscaradaLevelUpLearnset,
+        .teachableLearnset = sMeowscaradaTeachableLearnset,
+        .formSpeciesIdTable = sMeowscaradaFormSpeciesIdTable,
+        .formChangeTable = sMeowscaradaFormChangeTable,
+        .randomizerMode = MON_RANDOMIZER_INVALID
+    },
+#endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_SPRIGATITO
 
 #if P_FAMILY_FUECOCO

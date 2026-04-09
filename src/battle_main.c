@@ -73,8 +73,10 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "constants/weather.h"
+#include "constants/flags.h"
 #include "cable_club.h"
 #include "randomizer.h"
+#include "battle_rating.h"
 
 extern const struct BgTemplate gBattleBgTemplates[];
 extern const struct WindowTemplate *const gBattleWindowTemplates[];
@@ -5629,6 +5631,9 @@ static void HandleEndTurn_BattleWon(void)
     {
         gBattlescriptCurrInstr = BattleScript_PayDayMoneyAndPickUpItems;
     }
+
+    if (WasEpicBattle())
+        FlagSet(FLAG_EPIC_BATTLE_ROAMER_PENDING);
 
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }

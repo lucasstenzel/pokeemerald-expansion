@@ -262,7 +262,8 @@
     "MossdeepCity_SpaceCenter_2F",
     "MossdeepCity_GameCorner_1F",
     "MossdeepCity_GameCorner_B1F",
-    "MossdeepCity_BetaTesterHouse"
+    "MossdeepCity_BetaTesterHouse",
+    "MossdeepCity_BetaTesterHouse_B1F"
   ],
   "gMapGroup_IndoorSootopolis": [
     "SootopolisCity_Gym_1F",
@@ -437,7 +438,11 @@
     "FloatingSlab",
     "RockySlab",
     "GrassySlab",
-    "FieryPath_BackRoom"
+    "FieryPath_BackRoom",
+    "TurnbackCave_Entrance",
+    "TurnbackCave_Blue",
+    "TurnbackCave_Red",
+    "TurnbackCave_Gray"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

@@ -17242,6 +17242,14 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .shinyPalette = gMonShinyPalette_Snorlax,
         .iconSprite = gMonIcon_Snorlax,
         .iconPalIndex = P_GBA_STYLE_SPECIES_ICONS ? 1 : 3,
+        #if P_GENDER_DIFFERENCES
+        .frontPicFemale = gMonFrontPic_SnorlaxF,
+        .frontPicSizeFemale = MON_COORDS_SIZE(64, 64),
+        #if P_CUSTOM_GENDER_DIFF_ICONS == TRUE
+            .iconSpriteFemale = gMonIcon_SnorlaxF,
+            .iconPalIndexFemale = 3,
+        #endif
+        #endif //P_GENDER_DIFFERENCES
         SHADOW(0, 9, SHADOW_SIZE_XL_BATTLE_ONLY)
         FOOTPRINT(Snorlax)
         OVERWORLD(
@@ -17251,6 +17259,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             TRACKS_FOOT,
             gOverworldPalette_Snorlax,
             gShinyOverworldPalette_Snorlax
+        )
+        OVERWORLD_FEMALE(
+            sPicTable_SnorlaxF,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT
         )
         .levelUpLearnset = sSnorlaxLevelUpLearnset,
         .teachableLearnset = sSnorlaxTeachableLearnset,

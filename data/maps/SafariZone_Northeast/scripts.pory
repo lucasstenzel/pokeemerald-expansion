@@ -2,5 +2,26 @@ raw `
 SafariZone_Northeast_MapScripts::
 	.byte 0
 
-@ Event scripts for SafariZone_Northeast are in SafariZone_South/scripts.inc
+SafariZone_Northeast_EventScript_SecretWall::
+	lock
+	faceplayer
+	msgbox SafariZone_Northeast_Text_CrackInWall, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SafariZone_Northeast_EventScript_SecretWallDecline
+	@ Exit Safari Mode before warping
+	setvar VAR_SAFARI_ZONE_STATE, 1
+	special ExitSafariMode
+	playse SE_EXIT
+	waitse
+	warp MAP_TURNBACK_CAVE_ENTRANCE, 11, 20
+	waitstate
+	release
+	end
+
+SafariZone_Northeast_EventScript_SecretWallDecline::
+	release
+	end
+
+SafariZone_Northeast_Text_CrackInWall:
+	.string "You notice a crack in the wall...\n"
+	.string "Would you like to try to slip through?$"
 `

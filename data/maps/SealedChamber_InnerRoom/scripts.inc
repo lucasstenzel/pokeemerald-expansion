@@ -67,7 +67,7 @@ SealedChamber_InnerRoom_EventScript_Lugia::
 # 34 "data/maps/SealedChamber_InnerRoom/scripts.pory"
 	lock
 # 35 "data/maps/SealedChamber_InnerRoom/scripts.pory"
-	goto_if_unset FLAG_IS_CHAMPION, SealedChamber_InnerRoom_EventScript_NotStrongEnoughYet
+	goto_if_unset FLAG_SNAKE_DEFEATED, SealedChamber_InnerRoom_EventScript_NotStrongEnoughYet
 # 36 "data/maps/SealedChamber_InnerRoom/scripts.pory"
 	faceplayer
 # 37 "data/maps/SealedChamber_InnerRoom/scripts.pory"

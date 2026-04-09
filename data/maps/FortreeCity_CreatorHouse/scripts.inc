@@ -383,12 +383,14 @@ FortreeCity_CreatorHouse_EventScript_XGiveItems::
 # 335 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
 	giveitem ITEM_SCEPTILITE
 # 336 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
-	giveitem ITEM_TM_EARTHQUAKE
+	giveitem ITEM_MEOWSCARADITE
 # 337 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
-	giveitem ITEM_CHOICE_BAND
+	giveitem ITEM_TM_EARTHQUAKE
 # 338 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
-	msgbox X_ExplainItems
+	giveitem ITEM_CHOICE_BAND
 # 339 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
+	msgbox X_ExplainItems
+# 340 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
 	release
 	end
 
@@ -495,7 +497,7 @@ PostBattle_Cap::
 	.string "Back to.. doing nothing really.$"
 
 X_Greeting::
-# 343 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
+# 344 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
 	.string "Yo! I was just about to have lunch on\n"
 	.string "my Torterra's back, but I guess that\l"
 	.string "can wait. Do you want to battle in the\l"
@@ -506,16 +508,16 @@ X_Greeting::
 	.string "Band. You in?$"
 
 X_ReadyYet::
-# 354 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
+# 355 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
 	.string "You in now?$"
 
 X_ComeBackWhenReady::
-# 358 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
+# 359 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
 	.string "You know where to find me if you change\n"
 	.string "your mind.$"
 
 X_ExplainItems::
-# 363 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
+# 364 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
 	.string "This move Earthquake carried me\n"
 	.string "through many a Pearl run back in the\l"
 	.string "day.\p"
@@ -529,10 +531,10 @@ X_ExplainItems::
 	.string "I designed it myself!$"
 
 X_Outro::
-# 377 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
+# 378 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
 	.string "Well now you've gone and spoiled my\n"
 	.string "appetite...$"
 
 PostBattle_X::
-# 383 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
+# 384 "data/maps/FortreeCity_CreatorHouse/scripts.pory"
 	.string "... don't even deserve this sandwich...$"

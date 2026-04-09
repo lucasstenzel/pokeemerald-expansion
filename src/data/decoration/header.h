@@ -1092,6 +1092,18 @@ const struct Decoration gDecorations[] =
         .tiles = DecorGfx_MUDKIP_DOLL,
     },
 
+    [DECOR_GIBLE_DOLL] =
+    {
+        .id = DECOR_GIBLE_DOLL,
+        .name = _("GIBLE DOLL"),
+        .permission = DECORPERM_SPRITE,
+        .shape = DECORSHAPE_1x1,
+        .category = DECORCAT_DOLL,
+        .price = 3000,
+        .description = DecorDesc_MUDKIP_DOLL, // stenzel TODO
+        .tiles = DecorGfx_MUDKIP_DOLL,
+    },
+
     [DECOR_DUSKULL_DOLL] =
     {
         .id = DECOR_DUSKULL_DOLL,

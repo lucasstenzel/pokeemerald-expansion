@@ -933,6 +933,8 @@ extern const u32 gItemIcon_Tyranitarite[];
 extern const u32 gItemIconPalette_Tyranitarite[];
 extern const u32 gItemIcon_Sceptilite[];
 extern const u32 gItemIconPalette_Sceptilite[];
+extern const u32 gItemIcon_Meowscaradite[];
+extern const u32 gItemIconPalette_Meowscaradite[];
 extern const u32 gItemIcon_Blazikenite[];
 extern const u32 gItemIconPalette_Blazikenite[];
 extern const u32 gItemIcon_Swampertite[];

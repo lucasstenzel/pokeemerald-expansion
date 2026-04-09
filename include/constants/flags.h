@@ -52,32 +52,33 @@
 #define FLAG_USING_POKEMONPCMENU       0x26
 #define FLAG_STOP_ENCOUNTERS           0x27
 #define FLAG_PARTY_MOVES               0x28
-#define FLAG_UNUSED_0x29               0x29 // unused
+#define FLAG_CHOSE_GIBLESTARTER        0x29
 #define FLAG_RECEIVED_OLDALE_EGG       0x2A
 #define FLAG_RECEIVED_SETUP_TMS        0x2B
-#define FLAG_UNUSED_0x2C               0x2C // unused
+#define FLAG_EPIC_BATTLE_ROAMER_PENDING 0x2C // Set when an epic battle triggers a roamer release
 #define FLAG_RIVAL_110                 0x2D
 #define FLAG_DAWN_111                  0x2E
 #define FLAG_UNUSED_0x2F               0x2F // unused
 #define FLAG_RECEIVED_MEGA_STONES      0x30
 #define FLAG_RECEIVED_TMS_FROM_TUTOR   0x31
 #define FLAG_DECLINED_DANCE_BATTLE     0x32
-#define FLAG_UNUSED_0x33               0x33 // unused
-#define FLAG_UNUSED_0x34               0x34 // unused
-#define FLAG_UNUSED_0x35               0x35 // unused
+#define FLAG_DEFEATED_DIALGA           0x33
+#define FLAG_DEFEATED_PALKIA           0x34
+#define FLAG_DEFEATED_GIRATINA         0x35
 #define FLAG_RECEIVED_SCOPE_LENS       0x36
 #define FLAG_UNUSED_0x37               0x37 // unused
 #define FLAG_BEAT_TRICK_HOUSE_3        0x38
 #define FLAG_RECEIVED_KUBFU            0x39
-#define FLAG_UNUSED_0x3A               0x3A // unused
-#define FLAG_UNUSED_0x3B               0x3B // unused
-#define FLAG_UNUSED_0x3C               0x3C // unused
-#define FLAG_UNUSED_0x3D               0x3D // unused
-#define FLAG_UNUSED_0x3E               0x3E // unused
-#define FLAG_UNUSED_0x3F               0x3F // unused
-#define FLAG_UNUSED_0x40               0x40 // unused
-#define FLAG_UNUSED_0x41               0x41 // unused
-#define FLAG_UNUSED_0x42               0x42 // unused
+// Flags to track which legendaries have been released as roamers from epic battles
+#define FLAG_EPIC_ROAMER_RELEASED_0    0x3A // Heatran
+#define FLAG_EPIC_ROAMER_RELEASED_1    0x3B // Arceus
+#define FLAG_EPIC_ROAMER_RELEASED_2    0x3C // Xerneas
+#define FLAG_EPIC_ROAMER_RELEASED_3    0x3D // Yveltal
+#define FLAG_EPIC_ROAMER_RELEASED_4    0x3E // Solgaleo
+#define FLAG_EPIC_ROAMER_RELEASED_5    0x3F // Lunala
+#define FLAG_EPIC_ROAMER_RELEASED_6    0x40 // Necrozma
+#define FLAG_EPIC_ROAMER_RELEASED_7    0x41 // Zacian
+#define FLAG_EPIC_ROAMER_RELEASED_8    0x42 // Zamazenta
 #define FLAG_DAWN_LILYCOVE             0x43
 #define FLAG_UNUSED_0x44               0x44 // unused
 #define FLAG_UNUSED_0x45               0x45 // unused
@@ -519,9 +520,9 @@
 #define FLAG_RECEIVED_TM_STORED_POWER        0x1DE
 #define FLAG_DEFEATED_REGIGIGAS              0x1DF
 #define FLAG_HIDE_REGIGIGAS                  0x1E0
-#define FLAG_UNUSED_0x1E1                    0x1E1 // Unused Flag
-#define FLAG_UNUSED_0x1E2                    0x1E2 // Unused Flag
-#define FLAG_UNUSED_0x1E3                    0x1E3 // Unused Flag
+#define FLAG_HIDE_DIALGA                     0x1E1
+#define FLAG_HIDE_PALKIA                     0x1E2
+#define FLAG_HIDE_GIRATINA                   0x1E3
 
 // Mystery Gift Flags (Unknown)
 #define FLAG_MYSTERY_GIFT_DONE               0x1E4
@@ -1392,7 +1393,7 @@
 #define FLAG_VISITED_WEATHER_INST                   (SYSTEM_FLAGS + 0x23)
 #define FLAG_VISITED_ROUTE_121                      (SYSTEM_FLAGS + 0x24)
 #define FLAG_VISITED_ROUTE_128                      (SYSTEM_FLAGS + 0x25)
-#define FLAG_UNUSED_0x886                           (SYSTEM_FLAGS + 0x26) // Unused Flag
+#define FLAG_SNAKE_DEFEATED                         (SYSTEM_FLAGS + 0x26)
 #define FLAG_UNUSED_0x887                           (SYSTEM_FLAGS + 0x27) // Unused Flag
 
 #define FLAG_SYS_USE_FLASH                          (SYSTEM_FLAGS + 0x28)

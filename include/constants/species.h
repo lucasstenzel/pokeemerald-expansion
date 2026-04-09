@@ -1647,7 +1647,8 @@
 #define SPECIES_DUSKNOIR_MEGA                           1532
 #define SPECIES_PIKACHU_SURFING                         1533
 #define SPECIES_PIKACHU_FLYING                          1534
-#define SPECIES_MIMIKYU_BUSTED_TOTEM                    1535
+#define SPECIES_MEOWSCARADA_MEGA                        1535
+#define SPECIES_MIMIKYU_BUSTED_TOTEM                    1536
 #define SPECIES_MIMIKYU_TOTEM_BUSTED                    SPECIES_MIMIKYU_BUSTED_TOTEM
 
 

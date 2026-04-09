@@ -32,7 +32,7 @@ SealedChamber_InnerRoom_EventScript_TryRemoveLugia::
 
 SealedChamber_InnerRoom_EventScript_Lugia::
 	lock
-	goto_if_unset FLAG_IS_CHAMPION, SealedChamber_InnerRoom_EventScript_NotStrongEnoughYet
+	goto_if_unset FLAG_SNAKE_DEFEATED, SealedChamber_InnerRoom_EventScript_NotStrongEnoughYet
 	faceplayer
 	waitse
 	playmoncry SPECIES_LUGIA, CRY_MODE_ENCOUNTER

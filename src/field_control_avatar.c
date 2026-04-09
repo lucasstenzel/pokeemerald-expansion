@@ -24,6 +24,8 @@
 #include "metatile_behavior.h"
 #include "overworld.h"
 #include "pokemon.h"
+#include "roamer.h"
+#include "battle_rating.h"
 #include "tx_registered_items_menu.h"
 #include "safari_zone.h"
 #include "script.h"
@@ -42,6 +44,7 @@
 #include "constants/metatile_behaviors.h"
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
+#include "constants/flags.h"
 
 static EWRAM_DATA u8 sWildEncounterImmunitySteps = 0;
 static EWRAM_DATA u16 sPrevMetatileBehavior = 0;
@@ -673,6 +676,15 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
 
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED_MOVE) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior))
     {
+        if (FlagGet(FLAG_EPIC_BATTLE_ROAMER_PENDING))
+        {
+            FlagClear(FLAG_EPIC_BATTLE_ROAMER_PENDING);
+            if (TryReleaseRandomRoamer())
+            {
+                ScriptContext_SetupScript(EventScript_EpicBattleRoamerRelease);
+                return TRUE;
+            }
+        }
     #if OW_POISON_DAMAGE < GEN_5
         if (UpdatePoisonStepCounter() == TRUE)
         {

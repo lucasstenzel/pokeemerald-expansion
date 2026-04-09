@@ -25,7 +25,7 @@ Route111_WinstrateFamilysHouse_EventScript_Victor::
 # 13 "data/maps/Route111_WinstrateFamilysHouse/scripts.pory"
 	setvar VAR_0x8008, LOCALID_VICTOR
 # 14 "data/maps/Route111_WinstrateFamilysHouse/scripts.pory"
-	goto_if_set FLAG_IS_CHAMPION, Route111_WinstrateFamilysHouse_GiveMysticTicket
+	goto_if_set FLAG_SNAKE_DEFEATED, Route111_WinstrateFamilysHouse_GiveMysticTicket
 # 15 "data/maps/Route111_WinstrateFamilysHouse/scripts.pory"
 	msgbox Route111_WinstrateFamilysHouse_Text_MySonIsStrongerThanYou, MSGBOX_DEFAULT
 # 16 "data/maps/Route111_WinstrateFamilysHouse/scripts.pory"

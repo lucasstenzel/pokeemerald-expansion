@@ -855,6 +855,7 @@ RustboroCity_EventScript_BattleMay::
 	case 0, RustboroCity_EventScript_BattleMayTreecko
 	case 1, RustboroCity_EventScript_BattleMayTorchic
 	case 2, RustboroCity_EventScript_BattleMayMudkip
+	case 3, RustboroCity_EventScript_BattleMayGible
 	end
 
 RustboroCity_EventScript_BattleMay2::
@@ -863,6 +864,7 @@ RustboroCity_EventScript_BattleMay2::
 	case 0, RustboroCity_EventScript_BattleMayTreecko
 	case 1, RustboroCity_EventScript_BattleMayTorchic
 	case 2, RustboroCity_EventScript_BattleMayMudkip
+	case 3, RustboroCity_EventScript_BattleMayGible
 	end
 
 RustboroCity_EventScript_MayBrineyHint::
@@ -928,6 +930,18 @@ RustboroCity_EventScript_BattleMayMudkip::
 	goto RustboroCity_EventScript_MayBrineyHintWithLevelCapMessage
 	end
 
+RustboroCity_EventScript_BattleMayGible::
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_GIBLE, RustboroCity_Text_MayDefeat
+	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
+	setvar VAR_RUSTBORO_CITY_STATE, 8
+	setvar VAR_ROUTE104_STATE, 2
+	setvar VAR_BRINEY_HOUSE_STATE, 1
+	clearflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
+	clearflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO
+	setvar VAR_BRINEY_LOCATION, 1
+	goto RustboroCity_EventScript_MayBrineyHintWithLevelCapMessage
+	end
+
 RustboroCity_EventScript_BrendanEncounter::
 	goto_if_set FLAG_DEFEATED_RIVAL_RUSTBORO, RustboroCity_EventScript_BrendanBrineyHint
 	goto_if_set FLAG_MET_RIVAL_RUSTBORO, RustboroCity_EventScript_BrendanAskToBattle
@@ -965,6 +979,7 @@ RustboroCity_EventScript_BattleBrendan::
 	case 0, RustboroCity_EventScript_BattleBrendanTreecko
 	case 1, RustboroCity_EventScript_BattleBrendanTorchic
 	case 2, RustboroCity_EventScript_BattleBrendanMudkip
+	case 3, RustboroCity_EventScript_BattleBrendanGible
 	end
 
 RustboroCity_EventScript_BattleBrendan2::
@@ -973,6 +988,7 @@ RustboroCity_EventScript_BattleBrendan2::
 	case 0, RustboroCity_EventScript_BattleBrendanTreecko
 	case 1, RustboroCity_EventScript_BattleBrendanTorchic
 	case 2, RustboroCity_EventScript_BattleBrendanMudkip
+	case 3, RustboroCity_EventScript_BattleBrendanGible
 	end
 
 RustboroCity_EventScript_BrendanBrineyHint::
@@ -1023,6 +1039,18 @@ RustboroCity_EventScript_BattleBrendanTorchic::
 
 RustboroCity_EventScript_BattleBrendanMudkip::
 	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_MUDKIP, RustboroCity_Text_BrendanDefeat
+	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
+	setvar VAR_RUSTBORO_CITY_STATE, 8
+	setvar VAR_ROUTE104_STATE, 2
+	setvar VAR_BRINEY_HOUSE_STATE, 1
+	clearflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
+	clearflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO
+	setvar VAR_BRINEY_LOCATION, 1
+	goto RustboroCity_EventScript_BrendanBrineyHintWithLevelCapMessage
+	end
+
+RustboroCity_EventScript_BattleBrendanGible::
+	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_GIBLE, RustboroCity_Text_BrendanDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
 	setvar VAR_RUSTBORO_CITY_STATE, 8
 	setvar VAR_ROUTE104_STATE, 2

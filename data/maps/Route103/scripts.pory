@@ -48,6 +48,7 @@ Route103_EventScript_RivalMay::
 	case 0, Route103_EventScript_StartMayBattleTreecko
 	case 1, Route103_EventScript_StartMayBattleTorchic
 	case 2, Route103_EventScript_StartMayBattleMudkip
+	case 3, Route103_EventScript_StartMayBattleGible
 	end
 
 Route103_EventScript_RivalBrendan::
@@ -65,6 +66,7 @@ Route103_EventScript_RivalBrendan::
 	case 0, Route103_EventScript_StartBrendanBattleTreecko
 	case 1, Route103_EventScript_StartBrendanBattleTorchic
 	case 2, Route103_EventScript_StartBrendanBattleMudkip
+	case 3, Route103_EventScript_StartBrendanBattleGible
 	end
 
 Route103_EventScript_StartMayBattleTreecko::
@@ -82,6 +84,11 @@ Route103_EventScript_StartMayBattleMudkip::
 	goto Route103_EventScript_AfterMayBattle
 	end
 
+Route103_EventScript_StartMayBattleGible::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_GIBLE, Route103_Text_MayDefeated
+	goto Route103_EventScript_AfterMayBattle
+	end
+
 Route103_EventScript_StartBrendanBattleTreecko::
 	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TREECKO, Route103_Text_BrendanDefeated
 	goto Route103_EventScript_AfterBrendanBattle
@@ -94,6 +101,11 @@ Route103_EventScript_StartBrendanBattleTorchic::
 
 Route103_EventScript_StartBrendanBattleMudkip::
 	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_MUDKIP, Route103_Text_BrendanDefeated
+	goto Route103_EventScript_AfterBrendanBattle
+	end
+
+Route103_EventScript_StartBrendanBattleGible::
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_GIBLE, Route103_Text_BrendanDefeated
 	goto Route103_EventScript_AfterBrendanBattle
 	end
 

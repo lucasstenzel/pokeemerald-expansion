@@ -126,7 +126,9 @@
 #define TRAINER_PIC_BEAUTY_FIRERED        108
 #define TRAINER_PIC_SUPERNERD_FIRERED     109
 #define TRAINER_PIC_CUE_BALL_FIRERED      110
-#define TRAINER_PIC_COUNT                 111
+#define TRAINER_PIC_JENKINS               111
+#define TRAINER_PIC_SNAKE                 112
+#define TRAINER_PIC_COUNT                 113
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0

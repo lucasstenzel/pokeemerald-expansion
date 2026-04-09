@@ -1288,6 +1288,11 @@ static const struct SpriteFrameImage sPicTable_Munchlax[] = {
 static const struct SpriteFrameImage sPicTable_Snorlax[] = {
     overworld_ascending_frames(gObjectEventPic_Snorlax, 4, 4),
 };
+#if P_GENDER_DIFFERENCES
+static const struct SpriteFrameImage sPicTable_SnorlaxF[] = {
+    overworld_ascending_frames(gObjectEventPic_SnorlaxF, 4, 4),
+};
+#endif //P_GENDER_DIFFERENCES
 #if P_GIGANTAMAX_FORMS
 /*static const struct SpriteFrameImage sPicTable_SnorlaxGmax[] = {
     overworld_ascending_frames(gObjectEventPic_SnorlaxGmax, 4, 4),

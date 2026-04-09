@@ -169,9 +169,12 @@ SootopolisCity_House4_Text_AlreadyGaveRelic::
 SootopolisCity_House4_Text_DontHaveLegend::
 # 118 "data/maps/SootopolisCity_House4/scripts.pory"
 	.string "I see, you don't have one of the\n"
-	.string "Pokémon that can use these relics.$"
+	.string "Pokémon that can use these relics.\l"
+	.string "I've heard that Snake can help you\l"
+	.string "find them.$"
 
 SootopolisCity_House4_Text_NotLegend::
-# 122 "data/maps/SootopolisCity_House4/scripts.pory"
+# 124 "data/maps/SootopolisCity_House4/scripts.pory"
 	.string "That's not one of the Pokémon that can\n"
-	.string "use these relics.$"
+	.string "use these relics. I've heard Snake can\l"
+	.string "help you find them.$"

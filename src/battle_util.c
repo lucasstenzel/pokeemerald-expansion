@@ -9663,6 +9663,14 @@ static inline u32 CalcAttackStat(struct DamageCalculationData *damageCalcData, u
                 RecordAbilityBattle(battlerDef, ABILITY_THICK_FAT);
         }
         break;
+    case ABILITY_GHILLIE_SUIT:
+        if (moveType == TYPE_FIRE || moveType == TYPE_ICE)
+        {
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
+            if (damageCalcData->updateFlags)
+                RecordAbilityBattle(battlerDef, ABILITY_GHILLIE_SUIT);
+        }
+        break;
     }
 
     // ally's abilities
@@ -10064,6 +10072,10 @@ static inline uq4_12_t GetAttackerAbilitiesModifier(u32 move, u32 battlerAtk, uq
         }
         break;
     case ABILITY_SNIPER:
+        if (isCrit)
+            return UQ_4_12(1.5);
+        break;
+    case ABILITY_GHILLIE_SUIT:
         if (isCrit)
             return UQ_4_12(1.5);
         break;

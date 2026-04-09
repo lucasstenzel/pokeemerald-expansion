@@ -10,7 +10,7 @@
 #define TRAINER_GRUNT_AQUA_HIDEOUT_3          4
 #define TRAINER_GRUNT_AQUA_HIDEOUT_4          5
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_1       6
-#define TRAINER_MATT_SEAFLOOR_CAVERN       7
+#define TRAINER_MATT_SEAFLOOR_CAVERN          7
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_3       8
 #define TRAINER_GABRIELLE_1                   9
 #define TRAINER_GRUNT_PETALBURG_WOODS        10
@@ -541,6 +541,12 @@
 #define TRAINER_MAY_ROUTE_103_TORCHIC       535
 #define TRAINER_MAY_ROUTE_110_TORCHIC       536
 #define TRAINER_MAY_ROUTE_119_TORCHIC       537
+#define TRAINER_BRENDAN_ROUTE_103_GIBLE     861
+#define TRAINER_BRENDAN_ROUTE_110_GIBLE     862
+#define TRAINER_BRENDAN_ROUTE_119_GIBLE     863
+#define TRAINER_MAY_ROUTE_103_GIBLE         864
+#define TRAINER_MAY_ROUTE_110_GIBLE         865
+#define TRAINER_MAY_ROUTE_119_GIBLE         866
 #define TRAINER_EZEKIEL_1                   538
 #define TRAINER_DAVIS                       539
 #define TRAINER_MITCHELL                    540
@@ -604,8 +610,10 @@
 #define TRAINER_JONATHAN                    598
 #define TRAINER_BRENDAN_RUSTBORO_TORCHIC    599
 #define TRAINER_MAY_RUSTBORO_MUDKIP         600
-#define TRAINER_MAXIE_MAGMA_HIDEOUT         601
-#define TRAINER_MAXIE_MT_CHIMNEY            602
+#define TRAINER_BRENDAN_RUSTBORO_GIBLE      867
+#define TRAINER_MAY_RUSTBORO_GIBLE          868
+#define TRAINER_MAXIE_MT_CHIMNEY            601
+#define TRAINER_MAXIE_MAGMA_HIDEOUT         602
 #define TRAINER_TIANA                       603
 #define TRAINER_HALEY_1                     604
 #define TRAINER_JANICE                      605
@@ -670,6 +678,8 @@
 #define TRAINER_MAY_EVERGRANDE_MUDKIP         664
 #define TRAINER_MAY_EVERGRANDE_TREECKO        665
 #define TRAINER_MAY_EVERGRANDE_TORCHIC        666
+#define TRAINER_BRENDAN_EVERGRANDE_GIBLE      869
+#define TRAINER_MAY_EVERGRANDE_GIBLE          870
 #define TRAINER_JONAH                       667
 #define TRAINER_HENRY                       668
 #define TRAINER_ROGER                       669
@@ -864,13 +874,15 @@
 #define TRAINER_DAWN_LILYCOVE               858
 #define TRAINER_DAWN_EVERGRANDE             859
 #define TRAINER_CYNTHIA                     860
+#define TRAINER_JENKINS                     871
+#define TRAINER_SNAKE                       872
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      861
-#define MAX_TRAINERS_COUNT                  864
+#define TRAINERS_COUNT                      873
+#define MAX_TRAINERS_COUNT                  875
 #define TRAINER_PARTNER(partner)           (MAX_TRAINERS_COUNT + partner)
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

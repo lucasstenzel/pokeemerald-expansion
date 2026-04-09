@@ -117,9 +117,13 @@ text SootopolisCity_House4_Text_AlreadyGaveRelic{
 
 text SootopolisCity_House4_Text_DontHaveLegend{
 	"I see, you don't have one of the\n"
-	"Pokémon that can use these relics."
+	"Pokémon that can use these relics.\l"
+	"I've heard that Snake can help you\l"
+	"find them."
 }
+
 text SootopolisCity_House4_Text_NotLegend{
 	"That's not one of the Pokémon that can\n"
-	"use these relics."
+	"use these relics. I've heard Snake can\l"
+	"help you find them."
 }

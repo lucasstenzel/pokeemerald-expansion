@@ -91,6 +91,7 @@ const u32 *const gDecorIconTable[][2] =
     [DECOR_TREECKO_DOLL]    = {NULL, NULL},
     [DECOR_TORCHIC_DOLL]    = {NULL, NULL},
     [DECOR_MUDKIP_DOLL]     = {NULL, NULL},
+     [DECOR_GIBLE_DOLL]     = {NULL, NULL},
     [DECOR_DUSKULL_DOLL]    = {NULL, NULL},
     [DECOR_WYNAUT_DOLL]     = {NULL, NULL},
     [DECOR_BALTOY_DOLL]     = {NULL, NULL},

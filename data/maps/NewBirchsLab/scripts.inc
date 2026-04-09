@@ -1,1234 +1,1424 @@
 NewBirchsLab_MapScripts::
-# 2 "data/maps/NewBirchsLab/scripts.pory"
-	map_script MAP_SCRIPT_ON_TRANSITION, NewBirchsLab_EventScript_BallDefault
-# 3 "data/maps/NewBirchsLab/scripts.pory"
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, NewBirchsLab_OnWarp
 # 4 "data/maps/NewBirchsLab/scripts.pory"
+	map_script MAP_SCRIPT_ON_TRANSITION, NewBirchsLab_EventScript_BallDefault
+# 5 "data/maps/NewBirchsLab/scripts.pory"
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, NewBirchsLab_OnWarp
+# 6 "data/maps/NewBirchsLab/scripts.pory"
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_ProfessorBirchsLab_OnFrame
 	.byte 0
 
 
 NewBirchsLab_EventScript_BallDefault::
-# 8 "data/maps/NewBirchsLab/scripts.pory"
-	setvar VAR_STARTER_GEN, 0
-# 9 "data/maps/NewBirchsLab/scripts.pory"
-	setvar VAR_UNUSED_0x40F8, 1
 # 10 "data/maps/NewBirchsLab/scripts.pory"
+	setvar VAR_STARTER_GEN, 0
+# 11 "data/maps/NewBirchsLab/scripts.pory"
+	setvar VAR_UNUSED_0x40F8, 1
+# 12 "data/maps/NewBirchsLab/scripts.pory"
 	setvar VAR_MONOTYPE_STARTER, 0
 	return
 
 
 NewBirchsLab_EventScript_Birch::
-# 14 "data/maps/NewBirchsLab/scripts.pory"
-	lockall
-# 15 "data/maps/NewBirchsLab/scripts.pory"
-	faceplayer
 # 16 "data/maps/NewBirchsLab/scripts.pory"
+	lockall
+# 17 "data/maps/NewBirchsLab/scripts.pory"
+	faceplayer
+# 18 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_unset FLAG_TOUCHED_BALLS, NewBirchsLab_EventScript_Birch_2
 NewBirchsLab_EventScript_Birch_1:
-# 24 "data/maps/NewBirchsLab/scripts.pory"
-	goto_if_set FLAG_USE_MONOTYPE_STARTERS, NewBirchsLab_EventScript_BirchMonotypeStarters
 # 26 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_set FLAG_USE_MONOTYPE_STARTERS, NewBirchsLab_EventScript_BirchMonotypeStarters
+# 28 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_unset FLAG_CHOSE_WATERSTARTER, NewBirchsLab_EventScript_Birch_7
 NewBirchsLab_EventScript_Birch_6:
-# 50 "data/maps/NewBirchsLab/scripts.pory"
-	goto_if_set FLAG_SYS_POKEDEX_GET, NewBirchsLab_EventScript_Birch_15
-# 56 "data/maps/NewBirchsLab/scripts.pory"
-	checkplayergender
-# 57 "data/maps/NewBirchsLab/scripts.pory"
-	call_if_eq VAR_RESULT, FEMALE, NewBirchsLab_EventScript_GoodbyePlayerFemale
 # 58 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_set FLAG_SYS_POKEDEX_GET, NewBirchsLab_EventScript_Birch_19
+# 64 "data/maps/NewBirchsLab/scripts.pory"
+	checkplayergender
+# 65 "data/maps/NewBirchsLab/scripts.pory"
+	call_if_eq VAR_RESULT, FEMALE, NewBirchsLab_EventScript_GoodbyePlayerFemale
+# 66 "data/maps/NewBirchsLab/scripts.pory"
 	call_if_eq VAR_RESULT, MALE, NewBirchsLab_EventScript_GoodbyePlayerMale
 NewBirchsLab_EventScript_Birch_4:
-# 62 "data/maps/NewBirchsLab/scripts.pory"
+# 70 "data/maps/NewBirchsLab/scripts.pory"
 	waitmessage
-# 63 "data/maps/NewBirchsLab/scripts.pory"
+# 71 "data/maps/NewBirchsLab/scripts.pory"
 	releaseall
 	end
 
 NewBirchsLab_EventScript_Birch_2:
-# 18 "data/maps/NewBirchsLab/scripts.pory"
-	checkplayergender
-# 19 "data/maps/NewBirchsLab/scripts.pory"
-	call_if_eq VAR_RESULT, FEMALE, NewBirchsLab_EventScript_WelcomePlayerFemale
 # 20 "data/maps/NewBirchsLab/scripts.pory"
-	call_if_eq VAR_RESULT, MALE, NewBirchsLab_EventScript_WelcomePlayerMale
+	checkplayergender
 # 21 "data/maps/NewBirchsLab/scripts.pory"
+	call_if_eq VAR_RESULT, FEMALE, NewBirchsLab_EventScript_WelcomePlayerFemale
+# 22 "data/maps/NewBirchsLab/scripts.pory"
+	call_if_eq VAR_RESULT, MALE, NewBirchsLab_EventScript_WelcomePlayerMale
+# 23 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_TOUCHED_BALLS
 	goto NewBirchsLab_EventScript_Birch_1
 
 NewBirchsLab_EventScript_Birch_5:
-# 27 "data/maps/NewBirchsLab/scripts.pory"
-	msgbox NewBirchsLab_ChangeStarters
-# 28 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_Birch_Text_0, 0
 # 29 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_Birch_Text_1, 1
+	msgbox NewBirchsLab_ChangeStarters
 # 30 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_Birch_Text_2, 2
+	dynmultipush NewBirchsLab_EventScript_Birch_Text_0, 0
 # 31 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_Birch_Text_3, 3
+	dynmultipush NewBirchsLab_EventScript_Birch_Text_1, 1
 # 32 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_Birch_Text_4, 4
+	dynmultipush NewBirchsLab_EventScript_Birch_Text_2, 2
 # 33 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_Birch_Text_5, 5
+	dynmultipush NewBirchsLab_EventScript_Birch_Text_3, 3
 # 34 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_Birch_Text_6, 6
+	dynmultipush NewBirchsLab_EventScript_Birch_Text_4, 4
 # 35 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_Birch_Text_7, 7
+	dynmultipush NewBirchsLab_EventScript_Birch_Text_5, 5
 # 36 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_Birch_Text_8, 8
+	dynmultipush NewBirchsLab_EventScript_Birch_Text_6, 6
 # 37 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_Birch_Text_9, MULTI_B_PRESSED
+	dynmultipush NewBirchsLab_EventScript_Birch_Text_7, 7
+# 38 "data/maps/NewBirchsLab/scripts.pory"
+	dynmultipush NewBirchsLab_EventScript_Birch_Text_8, 8
+# 39 "data/maps/NewBirchsLab/scripts.pory"
+	dynmultipush NewBirchsLab_EventScript_Birch_Text_9, 9
 # 40 "data/maps/NewBirchsLab/scripts.pory"
+	dynmultipush NewBirchsLab_EventScript_Birch_Text_10, MULTI_B_PRESSED
+# 43 "data/maps/NewBirchsLab/scripts.pory"
 	dynmultistack 0, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
-# 42 "data/maps/NewBirchsLab/scripts.pory"
+# 45 "data/maps/NewBirchsLab/scripts.pory"
 	compare VAR_RESULT, MULTI_B_PRESSED
-	goto_if_eq NewBirchsLab_EventScript_Birch_13
-NewBirchsLab_EventScript_Birch_12:
-# 46 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_eq NewBirchsLab_EventScript_Birch_15
+# 49 "data/maps/NewBirchsLab/scripts.pory"
+	compare VAR_RESULT, 9
+	goto_if_eq NewBirchsLab_EventScript_Birch_16
+NewBirchsLab_EventScript_Birch_14:
+# 54 "data/maps/NewBirchsLab/scripts.pory"
 	copyvar VAR_STARTER_GEN, VAR_RESULT
-# 47 "data/maps/NewBirchsLab/scripts.pory"
+# 55 "data/maps/NewBirchsLab/scripts.pory"
 	goto NewBirchsLab_EventScript_SayGenShowing
 	goto NewBirchsLab_EventScript_Birch_4
 
 NewBirchsLab_EventScript_Birch_7:
-# 26 "data/maps/NewBirchsLab/scripts.pory"
+# 28 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_unset FLAG_CHOSE_GRASSSTARTER, NewBirchsLab_EventScript_Birch_9
 	goto NewBirchsLab_EventScript_Birch_6
 
 NewBirchsLab_EventScript_Birch_9:
-# 26 "data/maps/NewBirchsLab/scripts.pory"
-	goto_if_unset FLAG_CHOSE_FIRESTARTER, NewBirchsLab_EventScript_Birch_5
+# 28 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_unset FLAG_CHOSE_FIRESTARTER, NewBirchsLab_EventScript_Birch_11
 	goto NewBirchsLab_EventScript_Birch_6
 
-NewBirchsLab_EventScript_Birch_13:
-# 44 "data/maps/NewBirchsLab/scripts.pory"
-	goto NewBirchsLab_EventScript_SayGenShowing
-	goto NewBirchsLab_EventScript_Birch_12
+NewBirchsLab_EventScript_Birch_11:
+# 28 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_unset FLAG_CHOSE_GIBLESTARTER, NewBirchsLab_EventScript_Birch_5
+	goto NewBirchsLab_EventScript_Birch_6
 
 NewBirchsLab_EventScript_Birch_15:
+# 47 "data/maps/NewBirchsLab/scripts.pory"
+	goto NewBirchsLab_EventScript_SayGenShowing
+	goto NewBirchsLab_EventScript_Birch_14
+
+NewBirchsLab_EventScript_Birch_16:
+# 51 "data/maps/NewBirchsLab/scripts.pory"
+	setvar VAR_STARTER_GEN, 3
 # 52 "data/maps/NewBirchsLab/scripts.pory"
+	goto NewBirchsLab_EventScript_AskChimchar
+	goto NewBirchsLab_EventScript_Birch_14
+
+NewBirchsLab_EventScript_Birch_19:
+# 60 "data/maps/NewBirchsLab/scripts.pory"
 	goto ProfBirch_EventScript_AskRatePokedex
 	goto NewBirchsLab_EventScript_Birch_4
 
 
 NewBirchsLab_EventScript_BirchMonotypeStarters::
-# 68 "data/maps/NewBirchsLab/scripts.pory"
+# 76 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_unset FLAG_CHOSE_WATERSTARTER, NewBirchsLab_EventScript_BirchMonotypeStarters_4
 NewBirchsLab_EventScript_BirchMonotypeStarters_3:
-# 99 "data/maps/NewBirchsLab/scripts.pory"
-	goto_if_set FLAG_SYS_POKEDEX_GET, NewBirchsLab_EventScript_BirchMonotypeStarters_12
-# 105 "data/maps/NewBirchsLab/scripts.pory"
-	checkplayergender
-# 106 "data/maps/NewBirchsLab/scripts.pory"
-	call_if_eq VAR_RESULT, FEMALE, NewBirchsLab_EventScript_GoodbyePlayerFemale
 # 107 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_set FLAG_SYS_POKEDEX_GET, NewBirchsLab_EventScript_BirchMonotypeStarters_14
+# 113 "data/maps/NewBirchsLab/scripts.pory"
+	checkplayergender
+# 114 "data/maps/NewBirchsLab/scripts.pory"
+	call_if_eq VAR_RESULT, FEMALE, NewBirchsLab_EventScript_GoodbyePlayerFemale
+# 115 "data/maps/NewBirchsLab/scripts.pory"
 	call_if_eq VAR_RESULT, MALE, NewBirchsLab_EventScript_GoodbyePlayerMale
 NewBirchsLab_EventScript_BirchMonotypeStarters_1:
-# 111 "data/maps/NewBirchsLab/scripts.pory"
+# 119 "data/maps/NewBirchsLab/scripts.pory"
 	waitmessage
-# 112 "data/maps/NewBirchsLab/scripts.pory"
+# 120 "data/maps/NewBirchsLab/scripts.pory"
 	releaseall
 	end
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_2:
-# 69 "data/maps/NewBirchsLab/scripts.pory"
-	msgbox NewBirchsLab_ChangeStartersMonotypes
-# 71 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_0, 0
-# 72 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_1, 1
-# 73 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_2, 2
-# 74 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_3, 3
-# 75 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_4, 4
-# 76 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_5, 5
 # 77 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_6, 6
-# 78 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_7, 7
+	msgbox NewBirchsLab_ChangeStartersMonotypes
 # 79 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_8, 8
+	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_0, 0
 # 80 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_9, 9
+	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_1, 1
 # 81 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_10, 10
+	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_2, 2
 # 82 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_11, 11
+	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_3, 3
 # 83 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_12, 12
+	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_4, 4
 # 84 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_13, 13
+	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_5, 5
 # 85 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_14, 14
+	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_6, 6
 # 86 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultipush NewBirchsLab_EventScript_Birch_Text_9, MULTI_B_PRESSED
+	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_7, 7
+# 87 "data/maps/NewBirchsLab/scripts.pory"
+	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_8, 8
+# 88 "data/maps/NewBirchsLab/scripts.pory"
+	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_9, 9
 # 89 "data/maps/NewBirchsLab/scripts.pory"
-	dynmultistack 0, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_10, 10
+# 90 "data/maps/NewBirchsLab/scripts.pory"
+	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_11, 11
 # 91 "data/maps/NewBirchsLab/scripts.pory"
+	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_12, 12
+# 92 "data/maps/NewBirchsLab/scripts.pory"
+	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_13, 13
+# 93 "data/maps/NewBirchsLab/scripts.pory"
+	dynmultipush NewBirchsLab_EventScript_BirchMonotypeStarters_Text_14, 14
+# 94 "data/maps/NewBirchsLab/scripts.pory"
+	dynmultipush NewBirchsLab_EventScript_Birch_Text_10, MULTI_B_PRESSED
+# 97 "data/maps/NewBirchsLab/scripts.pory"
+	dynmultistack 0, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+# 99 "data/maps/NewBirchsLab/scripts.pory"
 	compare VAR_RESULT, MULTI_B_PRESSED
-	goto_if_eq NewBirchsLab_EventScript_BirchMonotypeStarters_10
-NewBirchsLab_EventScript_BirchMonotypeStarters_9:
-# 95 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_eq NewBirchsLab_EventScript_BirchMonotypeStarters_12
+NewBirchsLab_EventScript_BirchMonotypeStarters_11:
+# 103 "data/maps/NewBirchsLab/scripts.pory"
 	copyvar VAR_MONOTYPE_STARTER, VAR_RESULT
-# 96 "data/maps/NewBirchsLab/scripts.pory"
+# 104 "data/maps/NewBirchsLab/scripts.pory"
 	goto NewBirchsLab_EventScript_SayMonoShowing
 	goto NewBirchsLab_EventScript_BirchMonotypeStarters_1
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_4:
-# 68 "data/maps/NewBirchsLab/scripts.pory"
+# 76 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_unset FLAG_CHOSE_GRASSSTARTER, NewBirchsLab_EventScript_BirchMonotypeStarters_6
 	goto NewBirchsLab_EventScript_BirchMonotypeStarters_3
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_6:
-# 68 "data/maps/NewBirchsLab/scripts.pory"
-	goto_if_unset FLAG_CHOSE_FIRESTARTER, NewBirchsLab_EventScript_BirchMonotypeStarters_2
+# 76 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_unset FLAG_CHOSE_FIRESTARTER, NewBirchsLab_EventScript_BirchMonotypeStarters_8
 	goto NewBirchsLab_EventScript_BirchMonotypeStarters_3
 
-NewBirchsLab_EventScript_BirchMonotypeStarters_10:
-# 93 "data/maps/NewBirchsLab/scripts.pory"
-	goto NewBirchsLab_EventScript_SayMonoShowing
-	goto NewBirchsLab_EventScript_BirchMonotypeStarters_9
+NewBirchsLab_EventScript_BirchMonotypeStarters_8:
+# 76 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_unset FLAG_CHOSE_GIBLESTARTER, NewBirchsLab_EventScript_BirchMonotypeStarters_2
+	goto NewBirchsLab_EventScript_BirchMonotypeStarters_3
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_12:
 # 101 "data/maps/NewBirchsLab/scripts.pory"
+	goto NewBirchsLab_EventScript_SayMonoShowing
+	goto NewBirchsLab_EventScript_BirchMonotypeStarters_11
+
+NewBirchsLab_EventScript_BirchMonotypeStarters_14:
+# 109 "data/maps/NewBirchsLab/scripts.pory"
 	goto ProfBirch_EventScript_AskRatePokedex
 	goto NewBirchsLab_EventScript_BirchMonotypeStarters_1
 
 
 NewBirchsLab_EventScript_SayGenShowing::
-# 117 "data/maps/NewBirchsLab/scripts.pory"
-	switch VAR_STARTER_GEN
-# 119 "data/maps/NewBirchsLab/scripts.pory"
-	case 0, NewBirchsLab_EventScript_SayGenShowing_3
-# 121 "data/maps/NewBirchsLab/scripts.pory"
-	case 1, NewBirchsLab_EventScript_SayGenShowing_4
-# 123 "data/maps/NewBirchsLab/scripts.pory"
-	case 2, NewBirchsLab_EventScript_SayGenShowing_5
 # 125 "data/maps/NewBirchsLab/scripts.pory"
-	case 3, NewBirchsLab_EventScript_SayGenShowing_6
+	switch VAR_STARTER_GEN
 # 127 "data/maps/NewBirchsLab/scripts.pory"
-	case 4, NewBirchsLab_EventScript_SayGenShowing_7
+	case 0, NewBirchsLab_EventScript_SayGenShowing_3
 # 129 "data/maps/NewBirchsLab/scripts.pory"
-	case 5, NewBirchsLab_EventScript_SayGenShowing_8
+	case 1, NewBirchsLab_EventScript_SayGenShowing_4
 # 131 "data/maps/NewBirchsLab/scripts.pory"
-	case 6, NewBirchsLab_EventScript_SayGenShowing_9
+	case 2, NewBirchsLab_EventScript_SayGenShowing_5
 # 133 "data/maps/NewBirchsLab/scripts.pory"
-	case 7, NewBirchsLab_EventScript_SayGenShowing_10
+	case 3, NewBirchsLab_EventScript_SayGenShowing_6
 # 135 "data/maps/NewBirchsLab/scripts.pory"
+	case 4, NewBirchsLab_EventScript_SayGenShowing_7
+# 137 "data/maps/NewBirchsLab/scripts.pory"
+	case 5, NewBirchsLab_EventScript_SayGenShowing_8
+# 139 "data/maps/NewBirchsLab/scripts.pory"
+	case 6, NewBirchsLab_EventScript_SayGenShowing_9
+# 141 "data/maps/NewBirchsLab/scripts.pory"
+	case 7, NewBirchsLab_EventScript_SayGenShowing_10
+# 143 "data/maps/NewBirchsLab/scripts.pory"
 	case 8, NewBirchsLab_EventScript_SayGenShowing_11
-# 138 "data/maps/NewBirchsLab/scripts.pory"
+# 146 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayGenShowing_Text_9
 NewBirchsLab_EventScript_SayGenShowing_1:
-# 140 "data/maps/NewBirchsLab/scripts.pory"
+# 148 "data/maps/NewBirchsLab/scripts.pory"
 	release
 	end
 
 NewBirchsLab_EventScript_SayGenShowing_3:
-# 120 "data/maps/NewBirchsLab/scripts.pory"
+# 128 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayGenShowing_Text_0
 	goto NewBirchsLab_EventScript_SayGenShowing_1
 
 NewBirchsLab_EventScript_SayGenShowing_4:
-# 122 "data/maps/NewBirchsLab/scripts.pory"
+# 130 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayGenShowing_Text_1
 	goto NewBirchsLab_EventScript_SayGenShowing_1
 
 NewBirchsLab_EventScript_SayGenShowing_5:
-# 124 "data/maps/NewBirchsLab/scripts.pory"
+# 132 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayGenShowing_Text_2
 	goto NewBirchsLab_EventScript_SayGenShowing_1
 
 NewBirchsLab_EventScript_SayGenShowing_6:
-# 126 "data/maps/NewBirchsLab/scripts.pory"
+# 134 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayGenShowing_Text_3
 	goto NewBirchsLab_EventScript_SayGenShowing_1
 
 NewBirchsLab_EventScript_SayGenShowing_7:
-# 128 "data/maps/NewBirchsLab/scripts.pory"
+# 136 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayGenShowing_Text_4
 	goto NewBirchsLab_EventScript_SayGenShowing_1
 
 NewBirchsLab_EventScript_SayGenShowing_8:
-# 130 "data/maps/NewBirchsLab/scripts.pory"
+# 138 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayGenShowing_Text_5
 	goto NewBirchsLab_EventScript_SayGenShowing_1
 
 NewBirchsLab_EventScript_SayGenShowing_9:
-# 132 "data/maps/NewBirchsLab/scripts.pory"
+# 140 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayGenShowing_Text_6
 	goto NewBirchsLab_EventScript_SayGenShowing_1
 
 NewBirchsLab_EventScript_SayGenShowing_10:
-# 134 "data/maps/NewBirchsLab/scripts.pory"
+# 142 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayGenShowing_Text_7
 	goto NewBirchsLab_EventScript_SayGenShowing_1
 
 NewBirchsLab_EventScript_SayGenShowing_11:
-# 136 "data/maps/NewBirchsLab/scripts.pory"
+# 144 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayGenShowing_Text_8
 	goto NewBirchsLab_EventScript_SayGenShowing_1
 
 
-NewBirchsLab_EventScript_SayMonoShowing::
-# 145 "data/maps/NewBirchsLab/scripts.pory"
-	switch VAR_MONOTYPE_STARTER
-# 147 "data/maps/NewBirchsLab/scripts.pory"
-	case 0, NewBirchsLab_EventScript_SayMonoShowing_3
-# 149 "data/maps/NewBirchsLab/scripts.pory"
-	case 1, NewBirchsLab_EventScript_SayMonoShowing_4
-# 151 "data/maps/NewBirchsLab/scripts.pory"
-	case 2, NewBirchsLab_EventScript_SayMonoShowing_5
+NewBirchsLab_EventScript_AskChimchar::
 # 153 "data/maps/NewBirchsLab/scripts.pory"
-	case 3, NewBirchsLab_EventScript_SayMonoShowing_6
+	msgbox NewBirchsLab_EventScript_AskChimchar_Text_0
+# 154 "data/maps/NewBirchsLab/scripts.pory"
+	showmonpic SPECIES_CHIMCHAR, 10, 3
 # 155 "data/maps/NewBirchsLab/scripts.pory"
-	case 4, NewBirchsLab_EventScript_SayMonoShowing_7
+	msgbox NewBirchsLab_EventScript_AskChimchar_Text_1
+# 156 "data/maps/NewBirchsLab/scripts.pory"
+	hidemonpic
 # 157 "data/maps/NewBirchsLab/scripts.pory"
-	case 5, NewBirchsLab_EventScript_SayMonoShowing_8
+	dynmultipush NewBirchsLab_EventScript_AskChimchar_Text_2, 0
+# 158 "data/maps/NewBirchsLab/scripts.pory"
+	dynmultipush NewBirchsLab_EventScript_AskChimchar_Text_3, 1
 # 159 "data/maps/NewBirchsLab/scripts.pory"
-	case 6, NewBirchsLab_EventScript_SayMonoShowing_9
+	dynmultistack 0, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
 # 161 "data/maps/NewBirchsLab/scripts.pory"
-	case 7, NewBirchsLab_EventScript_SayMonoShowing_10
+	compare VAR_RESULT, 1
+	goto_if_eq NewBirchsLab_EventScript_AskChimchar_1
+# 210 "data/maps/NewBirchsLab/scripts.pory"
+	goto NewBirchsLab_EventScript_SayGenShowing
+	return
+
+NewBirchsLab_EventScript_AskChimchar_1:
+# 162 "data/maps/NewBirchsLab/scripts.pory"
+	msgbox NewBirchsLab_EventScript_AskChimchar_Text_4
 # 163 "data/maps/NewBirchsLab/scripts.pory"
-	case 8, NewBirchsLab_EventScript_SayMonoShowing_11
+	givemon SPECIES_GIBLE, 5
 # 165 "data/maps/NewBirchsLab/scripts.pory"
-	case 9, NewBirchsLab_EventScript_SayMonoShowing_12
+	compare VAR_RESULT, MON_GIVEN_TO_PARTY
+	goto_if_eq NewBirchsLab_EventScript_AskChimchar_5
+# 172 "data/maps/NewBirchsLab/scripts.pory"
+	compare VAR_RESULT, MON_GIVEN_TO_PC
+	goto_if_eq NewBirchsLab_EventScript_AskChimchar_6
+# 180 "data/maps/NewBirchsLab/scripts.pory"
+	msgbox NewBirchsLab_EventScript_AskChimchar_Text_6
+NewBirchsLab_EventScript_AskChimchar_4:
+# 183 "data/maps/NewBirchsLab/scripts.pory"
+	setflag FLAG_SYS_POKEMON_GET
+# 184 "data/maps/NewBirchsLab/scripts.pory"
+	setvar VAR_STARTER_MON, 3
+# 186 "data/maps/NewBirchsLab/scripts.pory"
+	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
+# 187 "data/maps/NewBirchsLab/scripts.pory"
+	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
+# 188 "data/maps/NewBirchsLab/scripts.pory"
+	setflag FLAG_RESCUED_BIRCH
+# 189 "data/maps/NewBirchsLab/scripts.pory"
+	setvar VAR_BIRCH_LAB_STATE, 3
+# 190 "data/maps/NewBirchsLab/scripts.pory"
+	setvar VAR_ROUTE101_STATE, 3
+# 191 "data/maps/NewBirchsLab/scripts.pory"
+	setvar VAR_LITTLEROOT_TOWN_STATE, 2
+# 192 "data/maps/NewBirchsLab/scripts.pory"
+	clearflag FLAG_HIDE_MAP_NAME_POPUP
+# 193 "data/maps/NewBirchsLab/scripts.pory"
+	clearflag FLAG_HIDE_ROUTE_101_BOY
+# 194 "data/maps/NewBirchsLab/scripts.pory"
+	checkplayergender
+# 195 "data/maps/NewBirchsLab/scripts.pory"
+	call_if_eq VAR_RESULT, MALE, Route101_EventScript_HideMayInBedroom
+# 196 "data/maps/NewBirchsLab/scripts.pory"
+	call_if_eq VAR_RESULT, FEMALE, Route101_EventScript_HideBrendanInBedroom
+# 198 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_set FLAG_SYS_POKEMON_GET, NewBirchsLab_EventScript_AskChimchar_11
+NewBirchsLab_EventScript_AskChimchar_10:
+# 205 "data/maps/NewBirchsLab/scripts.pory"
+	release
+	end
+
+NewBirchsLab_EventScript_AskChimchar_5:
+# 166 "data/maps/NewBirchsLab/scripts.pory"
+	playfanfare MUS_OBTAIN_ITEM
 # 167 "data/maps/NewBirchsLab/scripts.pory"
-	case 10, NewBirchsLab_EventScript_SayMonoShowing_13
+	msgbox NewBirchsLab_EventScript_AskChimchar_Text_5
+# 168 "data/maps/NewBirchsLab/scripts.pory"
+	waitfanfare
 # 169 "data/maps/NewBirchsLab/scripts.pory"
-	case 11, NewBirchsLab_EventScript_SayMonoShowing_14
-# 171 "data/maps/NewBirchsLab/scripts.pory"
-	case 12, NewBirchsLab_EventScript_SayMonoShowing_15
+	setflag FLAG_CHOSE_GIBLESTARTER
+# 170 "data/maps/NewBirchsLab/scripts.pory"
+	call NicknamePartyMon
+	goto NewBirchsLab_EventScript_AskChimchar_4
+
+NewBirchsLab_EventScript_AskChimchar_6:
 # 173 "data/maps/NewBirchsLab/scripts.pory"
-	case 13, NewBirchsLab_EventScript_SayMonoShowing_16
+	playfanfare MUS_OBTAIN_ITEM
+# 174 "data/maps/NewBirchsLab/scripts.pory"
+	msgbox NewBirchsLab_EventScript_AskChimchar_Text_5
 # 175 "data/maps/NewBirchsLab/scripts.pory"
+	waitfanfare
+# 176 "data/maps/NewBirchsLab/scripts.pory"
+	setflag FLAG_CHOSE_GIBLESTARTER
+# 177 "data/maps/NewBirchsLab/scripts.pory"
+	call NicknameBoxMon
+	goto NewBirchsLab_EventScript_AskChimchar_4
+
+NewBirchsLab_EventScript_AskChimchar_11:
+# 201 "data/maps/NewBirchsLab/scripts.pory"
+	checkplayergender
+# 202 "data/maps/NewBirchsLab/scripts.pory"
+	call_if_eq VAR_RESULT, FEMALE, NewBirchsLab_EventScript_RivalSprigatitoGoodbyePlayerFemale
+# 203 "data/maps/NewBirchsLab/scripts.pory"
+	call_if_eq VAR_RESULT, MALE, NewBirchsLab_EventScript_RivalSprigatitoGoodbyePlayerMale
+	goto NewBirchsLab_EventScript_AskChimchar_10
+
+
+NewBirchsLab_EventScript_SayMonoShowing::
+# 215 "data/maps/NewBirchsLab/scripts.pory"
+	switch VAR_MONOTYPE_STARTER
+# 217 "data/maps/NewBirchsLab/scripts.pory"
+	case 0, NewBirchsLab_EventScript_SayMonoShowing_3
+# 219 "data/maps/NewBirchsLab/scripts.pory"
+	case 1, NewBirchsLab_EventScript_SayMonoShowing_4
+# 221 "data/maps/NewBirchsLab/scripts.pory"
+	case 2, NewBirchsLab_EventScript_SayMonoShowing_5
+# 223 "data/maps/NewBirchsLab/scripts.pory"
+	case 3, NewBirchsLab_EventScript_SayMonoShowing_6
+# 225 "data/maps/NewBirchsLab/scripts.pory"
+	case 4, NewBirchsLab_EventScript_SayMonoShowing_7
+# 227 "data/maps/NewBirchsLab/scripts.pory"
+	case 5, NewBirchsLab_EventScript_SayMonoShowing_8
+# 229 "data/maps/NewBirchsLab/scripts.pory"
+	case 6, NewBirchsLab_EventScript_SayMonoShowing_9
+# 231 "data/maps/NewBirchsLab/scripts.pory"
+	case 7, NewBirchsLab_EventScript_SayMonoShowing_10
+# 233 "data/maps/NewBirchsLab/scripts.pory"
+	case 8, NewBirchsLab_EventScript_SayMonoShowing_11
+# 235 "data/maps/NewBirchsLab/scripts.pory"
+	case 9, NewBirchsLab_EventScript_SayMonoShowing_12
+# 237 "data/maps/NewBirchsLab/scripts.pory"
+	case 10, NewBirchsLab_EventScript_SayMonoShowing_13
+# 239 "data/maps/NewBirchsLab/scripts.pory"
+	case 11, NewBirchsLab_EventScript_SayMonoShowing_14
+# 241 "data/maps/NewBirchsLab/scripts.pory"
+	case 12, NewBirchsLab_EventScript_SayMonoShowing_15
+# 243 "data/maps/NewBirchsLab/scripts.pory"
+	case 13, NewBirchsLab_EventScript_SayMonoShowing_16
+# 245 "data/maps/NewBirchsLab/scripts.pory"
 	case 14, NewBirchsLab_EventScript_SayMonoShowing_17
-# 178 "data/maps/NewBirchsLab/scripts.pory"
+# 248 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_13
 NewBirchsLab_EventScript_SayMonoShowing_1:
-# 180 "data/maps/NewBirchsLab/scripts.pory"
+# 250 "data/maps/NewBirchsLab/scripts.pory"
 	release
 	end
 
 NewBirchsLab_EventScript_SayMonoShowing_3:
-# 148 "data/maps/NewBirchsLab/scripts.pory"
+# 218 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_0
 	goto NewBirchsLab_EventScript_SayMonoShowing_1
 
 NewBirchsLab_EventScript_SayMonoShowing_4:
-# 150 "data/maps/NewBirchsLab/scripts.pory"
+# 220 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_1
 	goto NewBirchsLab_EventScript_SayMonoShowing_1
 
 NewBirchsLab_EventScript_SayMonoShowing_5:
-# 152 "data/maps/NewBirchsLab/scripts.pory"
+# 222 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_2
 	goto NewBirchsLab_EventScript_SayMonoShowing_1
 
 NewBirchsLab_EventScript_SayMonoShowing_6:
-# 154 "data/maps/NewBirchsLab/scripts.pory"
+# 224 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_3
 	goto NewBirchsLab_EventScript_SayMonoShowing_1
 
 NewBirchsLab_EventScript_SayMonoShowing_7:
-# 156 "data/maps/NewBirchsLab/scripts.pory"
+# 226 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_4
 	goto NewBirchsLab_EventScript_SayMonoShowing_1
 
 NewBirchsLab_EventScript_SayMonoShowing_8:
-# 158 "data/maps/NewBirchsLab/scripts.pory"
+# 228 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_5
 	goto NewBirchsLab_EventScript_SayMonoShowing_1
 
 NewBirchsLab_EventScript_SayMonoShowing_9:
-# 160 "data/maps/NewBirchsLab/scripts.pory"
+# 230 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_6
 	goto NewBirchsLab_EventScript_SayMonoShowing_1
 
 NewBirchsLab_EventScript_SayMonoShowing_10:
-# 162 "data/maps/NewBirchsLab/scripts.pory"
+# 232 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_7
 	goto NewBirchsLab_EventScript_SayMonoShowing_1
 
 NewBirchsLab_EventScript_SayMonoShowing_11:
-# 164 "data/maps/NewBirchsLab/scripts.pory"
+# 234 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_8
 	goto NewBirchsLab_EventScript_SayMonoShowing_1
 
 NewBirchsLab_EventScript_SayMonoShowing_12:
-# 166 "data/maps/NewBirchsLab/scripts.pory"
+# 236 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_9
 	goto NewBirchsLab_EventScript_SayMonoShowing_1
 
 NewBirchsLab_EventScript_SayMonoShowing_13:
-# 168 "data/maps/NewBirchsLab/scripts.pory"
+# 238 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_10
 	goto NewBirchsLab_EventScript_SayMonoShowing_1
 
 NewBirchsLab_EventScript_SayMonoShowing_14:
-# 170 "data/maps/NewBirchsLab/scripts.pory"
+# 240 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_11
 	goto NewBirchsLab_EventScript_SayMonoShowing_1
 
 NewBirchsLab_EventScript_SayMonoShowing_15:
-# 172 "data/maps/NewBirchsLab/scripts.pory"
+# 242 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_12
 	goto NewBirchsLab_EventScript_SayMonoShowing_1
 
 NewBirchsLab_EventScript_SayMonoShowing_16:
-# 174 "data/maps/NewBirchsLab/scripts.pory"
+# 244 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_13
 	goto NewBirchsLab_EventScript_SayMonoShowing_1
 
 NewBirchsLab_EventScript_SayMonoShowing_17:
-# 176 "data/maps/NewBirchsLab/scripts.pory"
+# 246 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_SayMonoShowing_Text_14
 	goto NewBirchsLab_EventScript_SayMonoShowing_1
 
 
 NewBirchsLab_EventScript_PokeballOne::
-# 185 "data/maps/NewBirchsLab/scripts.pory"
+# 255 "data/maps/NewBirchsLab/scripts.pory"
 	lockall
-# 186 "data/maps/NewBirchsLab/scripts.pory"
+# 256 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_set FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH, NewBirchsLab_EventScript_PokeballOne_2
-# 189 "data/maps/NewBirchsLab/scripts.pory"
+# 259 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_unset FLAG_TOUCHED_BALLS, NewBirchsLab_EventScript_PokeballOne_3
-# 193 "data/maps/NewBirchsLab/scripts.pory"
+# 263 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_unset FLAG_CHOSE_WATERSTARTER, NewBirchsLab_EventScript_PokeballOne_6
 NewBirchsLab_EventScript_PokeballOne_5:
-# 203 "data/maps/NewBirchsLab/scripts.pory"
+# 273 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_PokeballOne_Text_1
 NewBirchsLab_EventScript_PokeballOne_1:
-# 205 "data/maps/NewBirchsLab/scripts.pory"
+# 275 "data/maps/NewBirchsLab/scripts.pory"
 	waitmessage
-# 206 "data/maps/NewBirchsLab/scripts.pory"
+# 276 "data/maps/NewBirchsLab/scripts.pory"
 	releaseall
 	end
 
 NewBirchsLab_EventScript_PokeballOne_2:
-# 187 "data/maps/NewBirchsLab/scripts.pory"
+# 257 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_NotYet
 	goto NewBirchsLab_EventScript_PokeballOne_1
 
 NewBirchsLab_EventScript_PokeballOne_3:
-# 191 "data/maps/NewBirchsLab/scripts.pory"
+# 261 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_PokeballOne_Text_0
 	goto NewBirchsLab_EventScript_PokeballOne_1
 
 NewBirchsLab_EventScript_PokeballOne_4:
-# 194 "data/maps/NewBirchsLab/scripts.pory"
+# 264 "data/maps/NewBirchsLab/scripts.pory"
 	call NewBirchsLab_EventScript_HandleGrassStarterChoice
-# 195 "data/maps/NewBirchsLab/scripts.pory"
-	goto_if_set FLAG_SYS_POKEMON_GET, NewBirchsLab_EventScript_PokeballOne_13
+# 265 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_set FLAG_SYS_POKEMON_GET, NewBirchsLab_EventScript_PokeballOne_15
 	goto NewBirchsLab_EventScript_PokeballOne_1
 
 NewBirchsLab_EventScript_PokeballOne_6:
-# 193 "data/maps/NewBirchsLab/scripts.pory"
+# 263 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_unset FLAG_CHOSE_GRASSSTARTER, NewBirchsLab_EventScript_PokeballOne_8
 	goto NewBirchsLab_EventScript_PokeballOne_5
 
 NewBirchsLab_EventScript_PokeballOne_8:
-# 193 "data/maps/NewBirchsLab/scripts.pory"
-	goto_if_unset FLAG_CHOSE_FIRESTARTER, NewBirchsLab_EventScript_PokeballOne_4
+# 263 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_unset FLAG_CHOSE_FIRESTARTER, NewBirchsLab_EventScript_PokeballOne_10
 	goto NewBirchsLab_EventScript_PokeballOne_5
 
-NewBirchsLab_EventScript_PokeballOne_13:
-# 197 "data/maps/NewBirchsLab/scripts.pory"
+NewBirchsLab_EventScript_PokeballOne_10:
+# 263 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_unset FLAG_CHOSE_GIBLESTARTER, NewBirchsLab_EventScript_PokeballOne_4
+	goto NewBirchsLab_EventScript_PokeballOne_5
+
+NewBirchsLab_EventScript_PokeballOne_15:
+# 267 "data/maps/NewBirchsLab/scripts.pory"
 	checkplayergender
-# 198 "data/maps/NewBirchsLab/scripts.pory"
+# 268 "data/maps/NewBirchsLab/scripts.pory"
 	call_if_eq VAR_RESULT, FEMALE, NewBirchsLab_EventScript_RivalTorchicGoodbyePlayerFemale
-# 199 "data/maps/NewBirchsLab/scripts.pory"
+# 269 "data/maps/NewBirchsLab/scripts.pory"
 	call_if_eq VAR_RESULT, MALE, NewBirchsLab_EventScript_RivalTorchicGoodbyePlayerMale
 	goto NewBirchsLab_EventScript_PokeballOne_1
 
 
 NewBirchsLab_EventScript_HandleGrassStarterChoice::
-# 211 "data/maps/NewBirchsLab/scripts.pory"
+# 281 "data/maps/NewBirchsLab/scripts.pory"
 	bufferstarterinfo STR_VAR_1, 0
-# 212 "data/maps/NewBirchsLab/scripts.pory"
+# 282 "data/maps/NewBirchsLab/scripts.pory"
 	showmonpic VAR_0x8006, 10, 3
-# 213 "data/maps/NewBirchsLab/scripts.pory"
+# 283 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_HandleGrassStarterChoice_Text_0, MSGBOX_YESNO
-# 214 "data/maps/NewBirchsLab/scripts.pory"
+# 284 "data/maps/NewBirchsLab/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq NewBirchsLab_EventScript_HandleGrassStarterChoice_1
-# 254 "data/maps/NewBirchsLab/scripts.pory"
+# 324 "data/maps/NewBirchsLab/scripts.pory"
 	hidemonpic
-# 255 "data/maps/NewBirchsLab/scripts.pory"
+# 325 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_NotChosen
 	return
 
 NewBirchsLab_EventScript_HandleGrassStarterChoice_1:
-# 215 "data/maps/NewBirchsLab/scripts.pory"
+# 285 "data/maps/NewBirchsLab/scripts.pory"
 	call NewBirchsLab_GiveStarter
-# 217 "data/maps/NewBirchsLab/scripts.pory"
+# 287 "data/maps/NewBirchsLab/scripts.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq NewBirchsLab_EventScript_HandleGrassStarterChoice_5
-# 225 "data/maps/NewBirchsLab/scripts.pory"
+# 295 "data/maps/NewBirchsLab/scripts.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq NewBirchsLab_EventScript_HandleGrassStarterChoice_6
-# 234 "data/maps/NewBirchsLab/scripts.pory"
+# 304 "data/maps/NewBirchsLab/scripts.pory"
 	hidemonpic
-# 235 "data/maps/NewBirchsLab/scripts.pory"
-	msgbox NewBirchsLab_EventScript_HandleGrassStarterChoice_Text_2
+# 305 "data/maps/NewBirchsLab/scripts.pory"
+	msgbox NewBirchsLab_EventScript_AskChimchar_Text_6
 NewBirchsLab_EventScript_HandleGrassStarterChoice_4:
-# 238 "data/maps/NewBirchsLab/scripts.pory"
+# 308 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
-# 239 "data/maps/NewBirchsLab/scripts.pory"
+# 309 "data/maps/NewBirchsLab/scripts.pory"
 	setvar VAR_STARTER_MON, 0
-# 241 "data/maps/NewBirchsLab/scripts.pory"
+# 311 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
-# 242 "data/maps/NewBirchsLab/scripts.pory"
+# 312 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
-# 243 "data/maps/NewBirchsLab/scripts.pory"
+# 313 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_RESCUED_BIRCH
-# 244 "data/maps/NewBirchsLab/scripts.pory"
+# 314 "data/maps/NewBirchsLab/scripts.pory"
 	setvar VAR_BIRCH_LAB_STATE, 3
-# 245 "data/maps/NewBirchsLab/scripts.pory"
+# 315 "data/maps/NewBirchsLab/scripts.pory"
 	setvar VAR_ROUTE101_STATE, 3
-# 246 "data/maps/NewBirchsLab/scripts.pory"
+# 316 "data/maps/NewBirchsLab/scripts.pory"
 	setvar VAR_LITTLEROOT_TOWN_STATE, 2
-# 247 "data/maps/NewBirchsLab/scripts.pory"
+# 317 "data/maps/NewBirchsLab/scripts.pory"
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
-# 248 "data/maps/NewBirchsLab/scripts.pory"
+# 318 "data/maps/NewBirchsLab/scripts.pory"
 	clearflag FLAG_HIDE_ROUTE_101_BOY
-# 249 "data/maps/NewBirchsLab/scripts.pory"
+# 319 "data/maps/NewBirchsLab/scripts.pory"
 	checkplayergender
-# 250 "data/maps/NewBirchsLab/scripts.pory"
+# 320 "data/maps/NewBirchsLab/scripts.pory"
 	call_if_eq VAR_RESULT, MALE, Route101_EventScript_HideMayInBedroom
-# 251 "data/maps/NewBirchsLab/scripts.pory"
+# 321 "data/maps/NewBirchsLab/scripts.pory"
 	call_if_eq VAR_RESULT, FEMALE, Route101_EventScript_HideBrendanInBedroom
 	return
 
 NewBirchsLab_EventScript_HandleGrassStarterChoice_5:
-# 218 "data/maps/NewBirchsLab/scripts.pory"
+# 288 "data/maps/NewBirchsLab/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 219 "data/maps/NewBirchsLab/scripts.pory"
+# 289 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_HandleGrassStarterChoice_Text_1
-# 220 "data/maps/NewBirchsLab/scripts.pory"
+# 290 "data/maps/NewBirchsLab/scripts.pory"
 	waitfanfare
-# 221 "data/maps/NewBirchsLab/scripts.pory"
+# 291 "data/maps/NewBirchsLab/scripts.pory"
 	removeobject 1
-# 222 "data/maps/NewBirchsLab/scripts.pory"
+# 292 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_CHOSE_GRASSSTARTER
-# 223 "data/maps/NewBirchsLab/scripts.pory"
+# 293 "data/maps/NewBirchsLab/scripts.pory"
 	call NicknamePartyMon
 	goto NewBirchsLab_EventScript_HandleGrassStarterChoice_4
 
 NewBirchsLab_EventScript_HandleGrassStarterChoice_6:
-# 226 "data/maps/NewBirchsLab/scripts.pory"
+# 296 "data/maps/NewBirchsLab/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 227 "data/maps/NewBirchsLab/scripts.pory"
+# 297 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_HandleGrassStarterChoice_Text_1
-# 228 "data/maps/NewBirchsLab/scripts.pory"
+# 298 "data/maps/NewBirchsLab/scripts.pory"
 	waitfanfare
-# 229 "data/maps/NewBirchsLab/scripts.pory"
+# 299 "data/maps/NewBirchsLab/scripts.pory"
 	removeobject 1
-# 230 "data/maps/NewBirchsLab/scripts.pory"
+# 300 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_CHOSE_GRASSSTARTER
-# 231 "data/maps/NewBirchsLab/scripts.pory"
+# 301 "data/maps/NewBirchsLab/scripts.pory"
 	call NicknameBoxMon
 	goto NewBirchsLab_EventScript_HandleGrassStarterChoice_4
 
 
 NewBirchsLab_EventScript_PokeballTwo::
-# 261 "data/maps/NewBirchsLab/scripts.pory"
+# 331 "data/maps/NewBirchsLab/scripts.pory"
 	lockall
-# 262 "data/maps/NewBirchsLab/scripts.pory"
+# 332 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_set FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH, NewBirchsLab_EventScript_PokeballTwo_2
-# 265 "data/maps/NewBirchsLab/scripts.pory"
+# 335 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_unset FLAG_TOUCHED_BALLS, NewBirchsLab_EventScript_PokeballTwo_3
-# 269 "data/maps/NewBirchsLab/scripts.pory"
+# 339 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_unset FLAG_CHOSE_WATERSTARTER, NewBirchsLab_EventScript_PokeballTwo_6
 NewBirchsLab_EventScript_PokeballTwo_5:
-# 279 "data/maps/NewBirchsLab/scripts.pory"
+# 349 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_PokeballOne_Text_1
 NewBirchsLab_EventScript_PokeballTwo_1:
-# 281 "data/maps/NewBirchsLab/scripts.pory"
+# 351 "data/maps/NewBirchsLab/scripts.pory"
 	waitmessage
-# 282 "data/maps/NewBirchsLab/scripts.pory"
+# 352 "data/maps/NewBirchsLab/scripts.pory"
 	releaseall
 	end
 
 NewBirchsLab_EventScript_PokeballTwo_2:
-# 263 "data/maps/NewBirchsLab/scripts.pory"
+# 333 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_NotYet
 	goto NewBirchsLab_EventScript_PokeballTwo_1
 
 NewBirchsLab_EventScript_PokeballTwo_3:
-# 267 "data/maps/NewBirchsLab/scripts.pory"
+# 337 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_PokeballOne_Text_0
 	goto NewBirchsLab_EventScript_PokeballTwo_1
 
 NewBirchsLab_EventScript_PokeballTwo_4:
-# 270 "data/maps/NewBirchsLab/scripts.pory"
+# 340 "data/maps/NewBirchsLab/scripts.pory"
 	call NewBirchsLab_EventScript_HandleFireStarterChoice
-# 271 "data/maps/NewBirchsLab/scripts.pory"
-	goto_if_set FLAG_SYS_POKEMON_GET, NewBirchsLab_EventScript_PokeballTwo_13
+# 341 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_set FLAG_SYS_POKEMON_GET, NewBirchsLab_EventScript_PokeballTwo_15
 	goto NewBirchsLab_EventScript_PokeballTwo_1
 
 NewBirchsLab_EventScript_PokeballTwo_6:
-# 269 "data/maps/NewBirchsLab/scripts.pory"
+# 339 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_unset FLAG_CHOSE_GRASSSTARTER, NewBirchsLab_EventScript_PokeballTwo_8
 	goto NewBirchsLab_EventScript_PokeballTwo_5
 
 NewBirchsLab_EventScript_PokeballTwo_8:
-# 269 "data/maps/NewBirchsLab/scripts.pory"
-	goto_if_unset FLAG_CHOSE_FIRESTARTER, NewBirchsLab_EventScript_PokeballTwo_4
+# 339 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_unset FLAG_CHOSE_FIRESTARTER, NewBirchsLab_EventScript_PokeballTwo_10
 	goto NewBirchsLab_EventScript_PokeballTwo_5
 
-NewBirchsLab_EventScript_PokeballTwo_13:
-# 273 "data/maps/NewBirchsLab/scripts.pory"
+NewBirchsLab_EventScript_PokeballTwo_10:
+# 339 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_unset FLAG_CHOSE_GIBLESTARTER, NewBirchsLab_EventScript_PokeballTwo_4
+	goto NewBirchsLab_EventScript_PokeballTwo_5
+
+NewBirchsLab_EventScript_PokeballTwo_15:
+# 343 "data/maps/NewBirchsLab/scripts.pory"
 	checkplayergender
-# 274 "data/maps/NewBirchsLab/scripts.pory"
+# 344 "data/maps/NewBirchsLab/scripts.pory"
 	call_if_eq VAR_RESULT, FEMALE, NewBirchsLab_EventScript_RivalMudkipGoodbyePlayerFemale
-# 275 "data/maps/NewBirchsLab/scripts.pory"
+# 345 "data/maps/NewBirchsLab/scripts.pory"
 	call_if_eq VAR_RESULT, MALE, NewBirchsLab_EventScript_RivalMudkipGoodbyePlayerMale
 	goto NewBirchsLab_EventScript_PokeballTwo_1
 
 
 NewBirchsLab_EventScript_HandleFireStarterChoice::
-# 287 "data/maps/NewBirchsLab/scripts.pory"
+# 357 "data/maps/NewBirchsLab/scripts.pory"
 	bufferstarterinfo STR_VAR_1, 1
-# 288 "data/maps/NewBirchsLab/scripts.pory"
+# 358 "data/maps/NewBirchsLab/scripts.pory"
 	showmonpic VAR_0x8006, 10, 3
-# 289 "data/maps/NewBirchsLab/scripts.pory"
+# 359 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_HandleGrassStarterChoice_Text_0, MSGBOX_YESNO
-# 290 "data/maps/NewBirchsLab/scripts.pory"
+# 360 "data/maps/NewBirchsLab/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq NewBirchsLab_EventScript_HandleFireStarterChoice_1
-# 330 "data/maps/NewBirchsLab/scripts.pory"
+# 400 "data/maps/NewBirchsLab/scripts.pory"
 	hidemonpic
-# 331 "data/maps/NewBirchsLab/scripts.pory"
+# 401 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_NotChosen
 	return
 
 NewBirchsLab_EventScript_HandleFireStarterChoice_1:
-# 291 "data/maps/NewBirchsLab/scripts.pory"
+# 361 "data/maps/NewBirchsLab/scripts.pory"
 	call NewBirchsLab_GiveStarter
-# 293 "data/maps/NewBirchsLab/scripts.pory"
+# 363 "data/maps/NewBirchsLab/scripts.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq NewBirchsLab_EventScript_HandleFireStarterChoice_5
-# 301 "data/maps/NewBirchsLab/scripts.pory"
+# 371 "data/maps/NewBirchsLab/scripts.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq NewBirchsLab_EventScript_HandleFireStarterChoice_6
-# 310 "data/maps/NewBirchsLab/scripts.pory"
+# 380 "data/maps/NewBirchsLab/scripts.pory"
 	hidemonpic
-# 311 "data/maps/NewBirchsLab/scripts.pory"
-	msgbox NewBirchsLab_EventScript_HandleGrassStarterChoice_Text_2
+# 381 "data/maps/NewBirchsLab/scripts.pory"
+	msgbox NewBirchsLab_EventScript_AskChimchar_Text_6
 NewBirchsLab_EventScript_HandleFireStarterChoice_4:
-# 314 "data/maps/NewBirchsLab/scripts.pory"
+# 384 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
-# 315 "data/maps/NewBirchsLab/scripts.pory"
+# 385 "data/maps/NewBirchsLab/scripts.pory"
 	setvar VAR_STARTER_MON, 1
-# 317 "data/maps/NewBirchsLab/scripts.pory"
+# 387 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
-# 318 "data/maps/NewBirchsLab/scripts.pory"
+# 388 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
-# 319 "data/maps/NewBirchsLab/scripts.pory"
+# 389 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_RESCUED_BIRCH
-# 320 "data/maps/NewBirchsLab/scripts.pory"
+# 390 "data/maps/NewBirchsLab/scripts.pory"
 	setvar VAR_BIRCH_LAB_STATE, 3
-# 321 "data/maps/NewBirchsLab/scripts.pory"
+# 391 "data/maps/NewBirchsLab/scripts.pory"
 	setvar VAR_ROUTE101_STATE, 3
-# 322 "data/maps/NewBirchsLab/scripts.pory"
+# 392 "data/maps/NewBirchsLab/scripts.pory"
 	setvar VAR_LITTLEROOT_TOWN_STATE, 2
-# 323 "data/maps/NewBirchsLab/scripts.pory"
+# 393 "data/maps/NewBirchsLab/scripts.pory"
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
-# 324 "data/maps/NewBirchsLab/scripts.pory"
+# 394 "data/maps/NewBirchsLab/scripts.pory"
 	clearflag FLAG_HIDE_ROUTE_101_BOY
-# 325 "data/maps/NewBirchsLab/scripts.pory"
+# 395 "data/maps/NewBirchsLab/scripts.pory"
 	checkplayergender
-# 326 "data/maps/NewBirchsLab/scripts.pory"
+# 396 "data/maps/NewBirchsLab/scripts.pory"
 	call_if_eq VAR_RESULT, MALE, Route101_EventScript_HideMayInBedroom
-# 327 "data/maps/NewBirchsLab/scripts.pory"
+# 397 "data/maps/NewBirchsLab/scripts.pory"
 	call_if_eq VAR_RESULT, FEMALE, Route101_EventScript_HideBrendanInBedroom
 	return
 
 NewBirchsLab_EventScript_HandleFireStarterChoice_5:
-# 294 "data/maps/NewBirchsLab/scripts.pory"
+# 364 "data/maps/NewBirchsLab/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 295 "data/maps/NewBirchsLab/scripts.pory"
+# 365 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_HandleGrassStarterChoice_Text_1
-# 296 "data/maps/NewBirchsLab/scripts.pory"
+# 366 "data/maps/NewBirchsLab/scripts.pory"
 	waitfanfare
-# 297 "data/maps/NewBirchsLab/scripts.pory"
+# 367 "data/maps/NewBirchsLab/scripts.pory"
 	removeobject 2
-# 298 "data/maps/NewBirchsLab/scripts.pory"
+# 368 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_CHOSE_FIRESTARTER
-# 299 "data/maps/NewBirchsLab/scripts.pory"
+# 369 "data/maps/NewBirchsLab/scripts.pory"
 	call NicknamePartyMon
 	goto NewBirchsLab_EventScript_HandleFireStarterChoice_4
 
 NewBirchsLab_EventScript_HandleFireStarterChoice_6:
-# 302 "data/maps/NewBirchsLab/scripts.pory"
+# 372 "data/maps/NewBirchsLab/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 303 "data/maps/NewBirchsLab/scripts.pory"
+# 373 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_HandleGrassStarterChoice_Text_1
-# 304 "data/maps/NewBirchsLab/scripts.pory"
+# 374 "data/maps/NewBirchsLab/scripts.pory"
 	waitfanfare
-# 305 "data/maps/NewBirchsLab/scripts.pory"
+# 375 "data/maps/NewBirchsLab/scripts.pory"
 	removeobject 2
-# 306 "data/maps/NewBirchsLab/scripts.pory"
+# 376 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_CHOSE_FIRESTARTER
-# 307 "data/maps/NewBirchsLab/scripts.pory"
+# 377 "data/maps/NewBirchsLab/scripts.pory"
 	call NicknameBoxMon
 	goto NewBirchsLab_EventScript_HandleFireStarterChoice_4
 
 
 NewBirchsLab_EventScript_PokeballThree::
-# 337 "data/maps/NewBirchsLab/scripts.pory"
+# 407 "data/maps/NewBirchsLab/scripts.pory"
 	lockall
-# 338 "data/maps/NewBirchsLab/scripts.pory"
+# 408 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_set FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH, NewBirchsLab_EventScript_PokeballThree_2
-# 341 "data/maps/NewBirchsLab/scripts.pory"
+# 411 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_unset FLAG_TOUCHED_BALLS, NewBirchsLab_EventScript_PokeballThree_3
-# 345 "data/maps/NewBirchsLab/scripts.pory"
+# 415 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_unset FLAG_CHOSE_WATERSTARTER, NewBirchsLab_EventScript_PokeballThree_6
 NewBirchsLab_EventScript_PokeballThree_5:
-# 356 "data/maps/NewBirchsLab/scripts.pory"
+# 426 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_PokeballOne_Text_1
 NewBirchsLab_EventScript_PokeballThree_1:
-# 358 "data/maps/NewBirchsLab/scripts.pory"
+# 428 "data/maps/NewBirchsLab/scripts.pory"
 	waitmessage
-# 359 "data/maps/NewBirchsLab/scripts.pory"
+# 429 "data/maps/NewBirchsLab/scripts.pory"
 	releaseall
 	end
 
 NewBirchsLab_EventScript_PokeballThree_2:
-# 339 "data/maps/NewBirchsLab/scripts.pory"
+# 409 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_NotYet
 	goto NewBirchsLab_EventScript_PokeballThree_1
 
 NewBirchsLab_EventScript_PokeballThree_3:
-# 343 "data/maps/NewBirchsLab/scripts.pory"
+# 413 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_PokeballOne_Text_0
 	goto NewBirchsLab_EventScript_PokeballThree_1
 
 NewBirchsLab_EventScript_PokeballThree_4:
-# 346 "data/maps/NewBirchsLab/scripts.pory"
+# 416 "data/maps/NewBirchsLab/scripts.pory"
 	call NewBirchsLab_EventScript_HandleWaterStarterChoice
-# 347 "data/maps/NewBirchsLab/scripts.pory"
-	goto_if_set FLAG_SYS_POKEMON_GET, NewBirchsLab_EventScript_PokeballThree_13
+# 417 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_set FLAG_SYS_POKEMON_GET, NewBirchsLab_EventScript_PokeballThree_15
 	goto NewBirchsLab_EventScript_PokeballThree_1
 
 NewBirchsLab_EventScript_PokeballThree_6:
-# 345 "data/maps/NewBirchsLab/scripts.pory"
+# 415 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_unset FLAG_CHOSE_GRASSSTARTER, NewBirchsLab_EventScript_PokeballThree_8
 	goto NewBirchsLab_EventScript_PokeballThree_5
 
 NewBirchsLab_EventScript_PokeballThree_8:
-# 345 "data/maps/NewBirchsLab/scripts.pory"
-	goto_if_unset FLAG_CHOSE_FIRESTARTER, NewBirchsLab_EventScript_PokeballThree_4
+# 415 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_unset FLAG_CHOSE_FIRESTARTER, NewBirchsLab_EventScript_PokeballThree_10
 	goto NewBirchsLab_EventScript_PokeballThree_5
 
-NewBirchsLab_EventScript_PokeballThree_13:
-# 350 "data/maps/NewBirchsLab/scripts.pory"
+NewBirchsLab_EventScript_PokeballThree_10:
+# 415 "data/maps/NewBirchsLab/scripts.pory"
+	goto_if_unset FLAG_CHOSE_GIBLESTARTER, NewBirchsLab_EventScript_PokeballThree_4
+	goto NewBirchsLab_EventScript_PokeballThree_5
+
+NewBirchsLab_EventScript_PokeballThree_15:
+# 420 "data/maps/NewBirchsLab/scripts.pory"
 	checkplayergender
-# 351 "data/maps/NewBirchsLab/scripts.pory"
+# 421 "data/maps/NewBirchsLab/scripts.pory"
 	call_if_eq VAR_RESULT, FEMALE, NewBirchsLab_EventScript_RivalTreeckoGoodbyePlayerFemale
-# 352 "data/maps/NewBirchsLab/scripts.pory"
+# 422 "data/maps/NewBirchsLab/scripts.pory"
 	call_if_eq VAR_RESULT, MALE, NewBirchsLab_EventScript_RivalTreeckoGoodbyePlayerMale
 	goto NewBirchsLab_EventScript_PokeballThree_1
 
 
 NewBirchsLab_EventScript_HandleWaterStarterChoice::
-# 364 "data/maps/NewBirchsLab/scripts.pory"
+# 434 "data/maps/NewBirchsLab/scripts.pory"
 	bufferstarterinfo STR_VAR_1, 2
-# 365 "data/maps/NewBirchsLab/scripts.pory"
+# 435 "data/maps/NewBirchsLab/scripts.pory"
 	showmonpic VAR_0x8006, 10, 3
-# 366 "data/maps/NewBirchsLab/scripts.pory"
+# 436 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_HandleGrassStarterChoice_Text_0, MSGBOX_YESNO
-# 367 "data/maps/NewBirchsLab/scripts.pory"
+# 437 "data/maps/NewBirchsLab/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq NewBirchsLab_EventScript_HandleWaterStarterChoice_1
-# 407 "data/maps/NewBirchsLab/scripts.pory"
+# 477 "data/maps/NewBirchsLab/scripts.pory"
 	hidemonpic
-# 408 "data/maps/NewBirchsLab/scripts.pory"
+# 478 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_NotChosen
 	return
 
 NewBirchsLab_EventScript_HandleWaterStarterChoice_1:
-# 368 "data/maps/NewBirchsLab/scripts.pory"
+# 438 "data/maps/NewBirchsLab/scripts.pory"
 	call NewBirchsLab_GiveStarter
-# 370 "data/maps/NewBirchsLab/scripts.pory"
+# 440 "data/maps/NewBirchsLab/scripts.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq NewBirchsLab_EventScript_HandleWaterStarterChoice_5
-# 378 "data/maps/NewBirchsLab/scripts.pory"
+# 448 "data/maps/NewBirchsLab/scripts.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq NewBirchsLab_EventScript_HandleWaterStarterChoice_6
-# 387 "data/maps/NewBirchsLab/scripts.pory"
+# 457 "data/maps/NewBirchsLab/scripts.pory"
 	hidemonpic
-# 388 "data/maps/NewBirchsLab/scripts.pory"
-	msgbox NewBirchsLab_EventScript_HandleGrassStarterChoice_Text_2
+# 458 "data/maps/NewBirchsLab/scripts.pory"
+	msgbox NewBirchsLab_EventScript_AskChimchar_Text_6
 NewBirchsLab_EventScript_HandleWaterStarterChoice_4:
-# 391 "data/maps/NewBirchsLab/scripts.pory"
+# 461 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
-# 392 "data/maps/NewBirchsLab/scripts.pory"
+# 462 "data/maps/NewBirchsLab/scripts.pory"
 	setvar VAR_STARTER_MON, 2
-# 394 "data/maps/NewBirchsLab/scripts.pory"
+# 464 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
-# 395 "data/maps/NewBirchsLab/scripts.pory"
+# 465 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
-# 396 "data/maps/NewBirchsLab/scripts.pory"
+# 466 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_RESCUED_BIRCH
-# 397 "data/maps/NewBirchsLab/scripts.pory"
+# 467 "data/maps/NewBirchsLab/scripts.pory"
 	setvar VAR_BIRCH_LAB_STATE, 3
-# 398 "data/maps/NewBirchsLab/scripts.pory"
+# 468 "data/maps/NewBirchsLab/scripts.pory"
 	setvar VAR_ROUTE101_STATE, 3
-# 399 "data/maps/NewBirchsLab/scripts.pory"
+# 469 "data/maps/NewBirchsLab/scripts.pory"
 	setvar VAR_LITTLEROOT_TOWN_STATE, 2
-# 400 "data/maps/NewBirchsLab/scripts.pory"
+# 470 "data/maps/NewBirchsLab/scripts.pory"
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
-# 401 "data/maps/NewBirchsLab/scripts.pory"
+# 471 "data/maps/NewBirchsLab/scripts.pory"
 	clearflag FLAG_HIDE_ROUTE_101_BOY
-# 402 "data/maps/NewBirchsLab/scripts.pory"
+# 472 "data/maps/NewBirchsLab/scripts.pory"
 	checkplayergender
-# 403 "data/maps/NewBirchsLab/scripts.pory"
+# 473 "data/maps/NewBirchsLab/scripts.pory"
 	call_if_eq VAR_RESULT, MALE, Route101_EventScript_HideMayInBedroom
-# 404 "data/maps/NewBirchsLab/scripts.pory"
+# 474 "data/maps/NewBirchsLab/scripts.pory"
 	call_if_eq VAR_RESULT, FEMALE, Route101_EventScript_HideBrendanInBedroom
 	return
 
 NewBirchsLab_EventScript_HandleWaterStarterChoice_5:
-# 371 "data/maps/NewBirchsLab/scripts.pory"
+# 441 "data/maps/NewBirchsLab/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 372 "data/maps/NewBirchsLab/scripts.pory"
+# 442 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_HandleGrassStarterChoice_Text_1
-# 373 "data/maps/NewBirchsLab/scripts.pory"
+# 443 "data/maps/NewBirchsLab/scripts.pory"
 	waitfanfare
-# 374 "data/maps/NewBirchsLab/scripts.pory"
+# 444 "data/maps/NewBirchsLab/scripts.pory"
 	removeobject 3
-# 375 "data/maps/NewBirchsLab/scripts.pory"
+# 445 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_CHOSE_WATERSTARTER
-# 376 "data/maps/NewBirchsLab/scripts.pory"
+# 446 "data/maps/NewBirchsLab/scripts.pory"
 	call NicknamePartyMon
 	goto NewBirchsLab_EventScript_HandleWaterStarterChoice_4
 
 NewBirchsLab_EventScript_HandleWaterStarterChoice_6:
-# 379 "data/maps/NewBirchsLab/scripts.pory"
+# 449 "data/maps/NewBirchsLab/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 380 "data/maps/NewBirchsLab/scripts.pory"
+# 450 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_EventScript_HandleGrassStarterChoice_Text_1
-# 381 "data/maps/NewBirchsLab/scripts.pory"
+# 451 "data/maps/NewBirchsLab/scripts.pory"
 	waitfanfare
-# 382 "data/maps/NewBirchsLab/scripts.pory"
+# 452 "data/maps/NewBirchsLab/scripts.pory"
 	removeobject 3
-# 383 "data/maps/NewBirchsLab/scripts.pory"
+# 453 "data/maps/NewBirchsLab/scripts.pory"
 	setflag FLAG_CHOSE_WATERSTARTER
-# 384 "data/maps/NewBirchsLab/scripts.pory"
+# 454 "data/maps/NewBirchsLab/scripts.pory"
 	call NicknameBoxMon
 	goto NewBirchsLab_EventScript_HandleWaterStarterChoice_4
 
 
 NewBirchsLab_GiveStarter::
-# 414 "data/maps/NewBirchsLab/scripts.pory"
+# 484 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_set FLAG_USE_MONOTYPE_STARTERS, NewBirchsLab_GiveStarter_2
-# 427 "data/maps/NewBirchsLab/scripts.pory"
+# 497 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_set FLAG_SHINY_STARTERS, NewBirchsLab_GiveStarter_8
-# 433 "data/maps/NewBirchsLab/scripts.pory"
+# 503 "data/maps/NewBirchsLab/scripts.pory"
 	givemonrandom VAR_0x8006, 5
 NewBirchsLab_GiveStarter_1:
 	return
 
 NewBirchsLab_GiveStarter_2:
-# 416 "data/maps/NewBirchsLab/scripts.pory"
+# 486 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_set FLAG_SHINY_STARTERS, NewBirchsLab_GiveStarter_5
-# 422 "data/maps/NewBirchsLab/scripts.pory"
+# 492 "data/maps/NewBirchsLab/scripts.pory"
 	givemon VAR_0x8006, 5
 	goto NewBirchsLab_GiveStarter_1
 
 NewBirchsLab_GiveStarter_5:
-# 418 "data/maps/NewBirchsLab/scripts.pory"
+# 488 "data/maps/NewBirchsLab/scripts.pory"
 	givemon VAR_0x8006, 5, isShiny = TRUE
 	goto NewBirchsLab_GiveStarter_1
 
 NewBirchsLab_GiveStarter_8:
-# 429 "data/maps/NewBirchsLab/scripts.pory"
+# 499 "data/maps/NewBirchsLab/scripts.pory"
 	givemonrandom VAR_0x8006, 5, isShiny = TRUE
 	goto NewBirchsLab_GiveStarter_1
 
 
 NewBirchsLab_EventScript_WelcomePlayerMale::
-# 441 "data/maps/NewBirchsLab/scripts.pory"
+# 511 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_set FLAG_USE_MONOTYPE_STARTERS, NewBirchsLab_EventScript_WelcomePlayerMale_2
-# 448 "data/maps/NewBirchsLab/scripts.pory"
+# 518 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_WelcomePlayerMale
 NewBirchsLab_EventScript_WelcomePlayerMale_1:
 	return
 
 NewBirchsLab_EventScript_WelcomePlayerMale_2:
-# 443 "data/maps/NewBirchsLab/scripts.pory"
+# 513 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_WelcomePlayerMaleMonotype
 	goto NewBirchsLab_EventScript_WelcomePlayerMale_1
 
 
 NewBirchsLab_EventScript_WelcomePlayerFemale::
-# 454 "data/maps/NewBirchsLab/scripts.pory"
+# 524 "data/maps/NewBirchsLab/scripts.pory"
 	goto_if_set FLAG_USE_MONOTYPE_STARTERS, NewBirchsLab_EventScript_WelcomePlayerFemale_2
-# 461 "data/maps/NewBirchsLab/scripts.pory"
+# 531 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_WelcomePlayerFemale
 NewBirchsLab_EventScript_WelcomePlayerFemale_1:
 	return
 
 NewBirchsLab_EventScript_WelcomePlayerFemale_2:
-# 456 "data/maps/NewBirchsLab/scripts.pory"
+# 526 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_WelcomePlayerFemaleMonotype
 	goto NewBirchsLab_EventScript_WelcomePlayerFemale_1
 
 
 NewBirchsLab_EventScript_GoodbyePlayerMale::
-# 467 "data/maps/NewBirchsLab/scripts.pory"
+# 537 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_Route103PlayerMale
 	return
 
 
 NewBirchsLab_EventScript_GoodbyePlayerFemale::
-# 472 "data/maps/NewBirchsLab/scripts.pory"
+# 542 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_Route103PlayerFemale
 	return
 
 
 NewBirchsLab_EventScript_RivalTreeckoGoodbyePlayerMale::
-# 477 "data/maps/NewBirchsLab/scripts.pory"
+# 547 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_RivalStarterTreeckoPlayerMale
-# 478 "data/maps/NewBirchsLab/scripts.pory"
+# 548 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_Route103PlayerMale
-# 479 "data/maps/NewBirchsLab/scripts.pory"
+# 549 "data/maps/NewBirchsLab/scripts.pory"
 	callnative UpdateFollowingPokemon
 	return
 
 
 NewBirchsLab_EventScript_RivalTreeckoGoodbyePlayerFemale::
-# 484 "data/maps/NewBirchsLab/scripts.pory"
+# 554 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_RivalStarterTreeckoPlayerFemale
-# 485 "data/maps/NewBirchsLab/scripts.pory"
+# 555 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_Route103PlayerFemale
-# 486 "data/maps/NewBirchsLab/scripts.pory"
+# 556 "data/maps/NewBirchsLab/scripts.pory"
 	callnative UpdateFollowingPokemon
 	return
 
 
 NewBirchsLab_EventScript_RivalMudkipGoodbyePlayerMale::
-# 491 "data/maps/NewBirchsLab/scripts.pory"
+# 561 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_RivalStarterMudkipPlayerMale
-# 492 "data/maps/NewBirchsLab/scripts.pory"
+# 562 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_Route103PlayerMale
-# 493 "data/maps/NewBirchsLab/scripts.pory"
+# 563 "data/maps/NewBirchsLab/scripts.pory"
 	callnative UpdateFollowingPokemon
 	return
 
 
 NewBirchsLab_EventScript_RivalMudkipGoodbyePlayerFemale::
-# 498 "data/maps/NewBirchsLab/scripts.pory"
+# 568 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_RivalStarterMudkipPlayerFemale
-# 499 "data/maps/NewBirchsLab/scripts.pory"
+# 569 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_Route103PlayerFemale
-# 500 "data/maps/NewBirchsLab/scripts.pory"
+# 570 "data/maps/NewBirchsLab/scripts.pory"
 	callnative UpdateFollowingPokemon
 	return
 
 
 NewBirchsLab_EventScript_RivalTorchicGoodbyePlayerMale::
-# 505 "data/maps/NewBirchsLab/scripts.pory"
+# 575 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_RivalStarterTorchicPlayerMale
-# 506 "data/maps/NewBirchsLab/scripts.pory"
+# 576 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_Route103PlayerMale
-# 507 "data/maps/NewBirchsLab/scripts.pory"
+# 577 "data/maps/NewBirchsLab/scripts.pory"
 	callnative UpdateFollowingPokemon
 	return
 
 
 NewBirchsLab_EventScript_RivalTorchicGoodbyePlayerFemale::
-# 512 "data/maps/NewBirchsLab/scripts.pory"
+# 582 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_RivalStarterTorchicPlayerFemale
-# 513 "data/maps/NewBirchsLab/scripts.pory"
+# 583 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NewBirchsLab_Route103PlayerFemale
-# 514 "data/maps/NewBirchsLab/scripts.pory"
+# 584 "data/maps/NewBirchsLab/scripts.pory"
+	callnative UpdateFollowingPokemon
+	return
+
+
+NewBirchsLab_EventScript_RivalSprigatitoGoodbyePlayerMale::
+# 589 "data/maps/NewBirchsLab/scripts.pory"
+	msgbox NewBirchsLab_RivalStarterSprigatitoPlayerMale
+# 590 "data/maps/NewBirchsLab/scripts.pory"
+	msgbox NewBirchsLab_Route103PlayerMale
+# 591 "data/maps/NewBirchsLab/scripts.pory"
+	callnative UpdateFollowingPokemon
+	return
+
+
+NewBirchsLab_EventScript_RivalSprigatitoGoodbyePlayerFemale::
+# 596 "data/maps/NewBirchsLab/scripts.pory"
+	msgbox NewBirchsLab_RivalStarterSprigatitoPlayerFemale
+# 597 "data/maps/NewBirchsLab/scripts.pory"
+	msgbox NewBirchsLab_Route103PlayerFemale
+# 598 "data/maps/NewBirchsLab/scripts.pory"
 	callnative UpdateFollowingPokemon
 	return
 
 
 NicknamePartyMon::
-# 524 "data/maps/NewBirchsLab/scripts.pory"
+# 605 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NicknamePartyMon_Text_0, MSGBOX_YESNO
-# 525 "data/maps/NewBirchsLab/scripts.pory"
+# 606 "data/maps/NewBirchsLab/scripts.pory"
 	hidemonpic
-# 526 "data/maps/NewBirchsLab/scripts.pory"
+# 607 "data/maps/NewBirchsLab/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq NicknamePartyMon_1
 	return
 
 NicknamePartyMon_1:
-# 527 "data/maps/NewBirchsLab/scripts.pory"
+# 608 "data/maps/NewBirchsLab/scripts.pory"
 	call Common_EventScript_GetGiftMonPartySlot
-# 528 "data/maps/NewBirchsLab/scripts.pory"
+# 609 "data/maps/NewBirchsLab/scripts.pory"
 	call Common_EventScript_NameReceivedPartyMon
 	return
 
 
 NicknameBoxMon::
-# 535 "data/maps/NewBirchsLab/scripts.pory"
+# 616 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NicknamePartyMon_Text_0, MSGBOX_YESNO
-# 536 "data/maps/NewBirchsLab/scripts.pory"
+# 617 "data/maps/NewBirchsLab/scripts.pory"
 	hidemonpic
-# 537 "data/maps/NewBirchsLab/scripts.pory"
+# 618 "data/maps/NewBirchsLab/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq NicknameBoxMon_2
 NicknameBoxMon_1:
-# 540 "data/maps/NewBirchsLab/scripts.pory"
+# 621 "data/maps/NewBirchsLab/scripts.pory"
 	msgbox NicknameBoxMon_Text_0
 	return
 
 NicknameBoxMon_2:
-# 538 "data/maps/NewBirchsLab/scripts.pory"
+# 619 "data/maps/NewBirchsLab/scripts.pory"
 	call Common_EventScript_NameReceivedBoxMon
 	goto NicknameBoxMon_1
 
 
 NewBirchsLab_EventScript_Birch_Text_0:
-# 28 "data/maps/NewBirchsLab/scripts.pory"
+# 30 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Gen 1$"
 
 NewBirchsLab_EventScript_Birch_Text_1:
-# 29 "data/maps/NewBirchsLab/scripts.pory"
+# 31 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Gen 2$"
 
 NewBirchsLab_EventScript_Birch_Text_2:
-# 30 "data/maps/NewBirchsLab/scripts.pory"
+# 32 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Gen 3$"
 
 NewBirchsLab_EventScript_Birch_Text_3:
-# 31 "data/maps/NewBirchsLab/scripts.pory"
+# 33 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Gen 4$"
 
 NewBirchsLab_EventScript_Birch_Text_4:
-# 32 "data/maps/NewBirchsLab/scripts.pory"
+# 34 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Gen 5$"
 
 NewBirchsLab_EventScript_Birch_Text_5:
-# 33 "data/maps/NewBirchsLab/scripts.pory"
+# 35 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Gen 6$"
 
 NewBirchsLab_EventScript_Birch_Text_6:
-# 34 "data/maps/NewBirchsLab/scripts.pory"
+# 36 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Gen 7$"
 
 NewBirchsLab_EventScript_Birch_Text_7:
-# 35 "data/maps/NewBirchsLab/scripts.pory"
+# 37 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Gen 8$"
 
 NewBirchsLab_EventScript_Birch_Text_8:
-# 36 "data/maps/NewBirchsLab/scripts.pory"
+# 38 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Gen 9$"
 
 NewBirchsLab_EventScript_Birch_Text_9:
-# 37 "data/maps/NewBirchsLab/scripts.pory"
+# 39 "data/maps/NewBirchsLab/scripts.pory"
+	.string "I don't like any of these.$"
+
+NewBirchsLab_EventScript_Birch_Text_10:
+# 40 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Cancel$"
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_Text_0:
-# 71 "data/maps/NewBirchsLab/scripts.pory"
+# 79 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Fighting$"
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_Text_1:
-# 72 "data/maps/NewBirchsLab/scripts.pory"
+# 80 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Flying$"
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_Text_2:
-# 73 "data/maps/NewBirchsLab/scripts.pory"
+# 81 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Poison$"
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_Text_3:
-# 74 "data/maps/NewBirchsLab/scripts.pory"
+# 82 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Ground$"
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_Text_4:
-# 75 "data/maps/NewBirchsLab/scripts.pory"
+# 83 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Rock$"
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_Text_5:
-# 76 "data/maps/NewBirchsLab/scripts.pory"
+# 84 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Bug$"
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_Text_6:
-# 77 "data/maps/NewBirchsLab/scripts.pory"
+# 85 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Ghost$"
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_Text_7:
-# 78 "data/maps/NewBirchsLab/scripts.pory"
+# 86 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Steel$"
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_Text_8:
-# 79 "data/maps/NewBirchsLab/scripts.pory"
+# 87 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Electric$"
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_Text_9:
-# 80 "data/maps/NewBirchsLab/scripts.pory"
+# 88 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Psychic$"
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_Text_10:
-# 81 "data/maps/NewBirchsLab/scripts.pory"
+# 89 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Ice$"
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_Text_11:
-# 82 "data/maps/NewBirchsLab/scripts.pory"
+# 90 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Dragon$"
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_Text_12:
-# 83 "data/maps/NewBirchsLab/scripts.pory"
+# 91 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Dark$"
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_Text_13:
-# 84 "data/maps/NewBirchsLab/scripts.pory"
+# 92 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Normal$"
 
 NewBirchsLab_EventScript_BirchMonotypeStarters_Text_14:
-# 85 "data/maps/NewBirchsLab/scripts.pory"
+# 93 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Fairy$"
 
 NewBirchsLab_EventScript_SayGenShowing_Text_0:
-# 120 "data/maps/NewBirchsLab/scripts.pory"
+# 128 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing starters for Gen 1.$"
 
 NewBirchsLab_EventScript_SayGenShowing_Text_1:
-# 122 "data/maps/NewBirchsLab/scripts.pory"
+# 130 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing starters for Gen 2.$"
 
 NewBirchsLab_EventScript_SayGenShowing_Text_2:
-# 124 "data/maps/NewBirchsLab/scripts.pory"
+# 132 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing starters for Gen 3.$"
 
 NewBirchsLab_EventScript_SayGenShowing_Text_3:
-# 126 "data/maps/NewBirchsLab/scripts.pory"
+# 134 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing starters for Gen 4.$"
 
 NewBirchsLab_EventScript_SayGenShowing_Text_4:
-# 128 "data/maps/NewBirchsLab/scripts.pory"
+# 136 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing starters for Gen 5.$"
 
 NewBirchsLab_EventScript_SayGenShowing_Text_5:
-# 130 "data/maps/NewBirchsLab/scripts.pory"
+# 138 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing starters for Gen 6.$"
 
 NewBirchsLab_EventScript_SayGenShowing_Text_6:
-# 132 "data/maps/NewBirchsLab/scripts.pory"
+# 140 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing starters for Gen 7.$"
 
 NewBirchsLab_EventScript_SayGenShowing_Text_7:
-# 134 "data/maps/NewBirchsLab/scripts.pory"
+# 142 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing starters for Gen 8.$"
 
 NewBirchsLab_EventScript_SayGenShowing_Text_8:
-# 136 "data/maps/NewBirchsLab/scripts.pory"
+# 144 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing starters for Gen 9.$"
 
 NewBirchsLab_EventScript_SayGenShowing_Text_9:
-# 138 "data/maps/NewBirchsLab/scripts.pory"
+# 146 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Now showing starters.$"
 
+NewBirchsLab_EventScript_AskChimchar_Text_0:
+# 153 "data/maps/NewBirchsLab/scripts.pory"
+	.string "Really?$"
+
+NewBirchsLab_EventScript_AskChimchar_Text_1:
+# 155 "data/maps/NewBirchsLab/scripts.pory"
+	.string "...not even this guy?$"
+
+NewBirchsLab_EventScript_AskChimchar_Text_2:
+# 157 "data/maps/NewBirchsLab/scripts.pory"
+	.string "Okay fine, I'll pick a starter.$"
+
+NewBirchsLab_EventScript_AskChimchar_Text_3:
+# 158 "data/maps/NewBirchsLab/scripts.pory"
+	.string "Hate him.$"
+
+NewBirchsLab_EventScript_AskChimchar_Text_4:
+# 162 "data/maps/NewBirchsLab/scripts.pory"
+	.string "You ungrateful child. Take this.$"
+
+NewBirchsLab_EventScript_AskChimchar_Text_5:
+# 167 "data/maps/NewBirchsLab/scripts.pory"
+	.string "{PLAYER} received the Gible!$"
+
+NewBirchsLab_EventScript_AskChimchar_Text_6:
+# 180 "data/maps/NewBirchsLab/scripts.pory"
+	.string "No More Room$"
+
 NewBirchsLab_EventScript_SayMonoShowing_Text_0:
-# 148 "data/maps/NewBirchsLab/scripts.pory"
+# 218 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing Fighting-type starters.$"
 
 NewBirchsLab_EventScript_SayMonoShowing_Text_1:
-# 150 "data/maps/NewBirchsLab/scripts.pory"
+# 220 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing Flying-type starters.$"
 
 NewBirchsLab_EventScript_SayMonoShowing_Text_2:
-# 152 "data/maps/NewBirchsLab/scripts.pory"
+# 222 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing Poison-type starters.$"
 
 NewBirchsLab_EventScript_SayMonoShowing_Text_3:
-# 154 "data/maps/NewBirchsLab/scripts.pory"
+# 224 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing Ground-type starters.$"
 
 NewBirchsLab_EventScript_SayMonoShowing_Text_4:
-# 156 "data/maps/NewBirchsLab/scripts.pory"
+# 226 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing Rock-type starters.$"
 
 NewBirchsLab_EventScript_SayMonoShowing_Text_5:
-# 158 "data/maps/NewBirchsLab/scripts.pory"
+# 228 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing Bug-type starters.$"
 
 NewBirchsLab_EventScript_SayMonoShowing_Text_6:
-# 160 "data/maps/NewBirchsLab/scripts.pory"
+# 230 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing Ghost-type starters.$"
 
 NewBirchsLab_EventScript_SayMonoShowing_Text_7:
-# 162 "data/maps/NewBirchsLab/scripts.pory"
+# 232 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing Steel-type starters.$"
 
 NewBirchsLab_EventScript_SayMonoShowing_Text_8:
-# 164 "data/maps/NewBirchsLab/scripts.pory"
+# 234 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing Electric-type starters.$"
 
 NewBirchsLab_EventScript_SayMonoShowing_Text_9:
-# 166 "data/maps/NewBirchsLab/scripts.pory"
+# 236 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing Psychic-type starters.$"
 
 NewBirchsLab_EventScript_SayMonoShowing_Text_10:
-# 168 "data/maps/NewBirchsLab/scripts.pory"
+# 238 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing Ice-type starters.$"
 
 NewBirchsLab_EventScript_SayMonoShowing_Text_11:
-# 170 "data/maps/NewBirchsLab/scripts.pory"
+# 240 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing Dragon-type starters.$"
 
 NewBirchsLab_EventScript_SayMonoShowing_Text_12:
-# 172 "data/maps/NewBirchsLab/scripts.pory"
+# 242 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing Dark-type starters.$"
 
 NewBirchsLab_EventScript_SayMonoShowing_Text_13:
-# 174 "data/maps/NewBirchsLab/scripts.pory"
+# 244 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing Normal-type starters.$"
 
 NewBirchsLab_EventScript_SayMonoShowing_Text_14:
-# 176 "data/maps/NewBirchsLab/scripts.pory"
+# 246 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Showing Fairy-type starters.$"
 
 NewBirchsLab_EventScript_PokeballOne_Text_0:
-# 191 "data/maps/NewBirchsLab/scripts.pory"
+# 261 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Ask Professor Birch about this!$"
 
 NewBirchsLab_EventScript_PokeballOne_Text_1:
-# 203 "data/maps/NewBirchsLab/scripts.pory"
+# 273 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Better not get greedy!$"
 
 NewBirchsLab_EventScript_HandleGrassStarterChoice_Text_0:
-# 213 "data/maps/NewBirchsLab/scripts.pory"
+# 283 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Do you want to choose {STR_VAR_1}?$"
 
 NewBirchsLab_EventScript_HandleGrassStarterChoice_Text_1:
-# 219 "data/maps/NewBirchsLab/scripts.pory"
+# 289 "data/maps/NewBirchsLab/scripts.pory"
 	.string "{PLAYER} received the {STR_VAR_1}!$"
 
-NewBirchsLab_EventScript_HandleGrassStarterChoice_Text_2:
-# 235 "data/maps/NewBirchsLab/scripts.pory"
-	.string "No More Room$"
-
 NicknamePartyMon_Text_0:
-# 524 "data/maps/NewBirchsLab/scripts.pory"
+# 605 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Give a nickname?$"
 
 NicknameBoxMon_Text_0:
-# 540 "data/maps/NewBirchsLab/scripts.pory"
+# 621 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Transferred to PC.$"
 
 NewBirchsLab_NotChosen::
-# 543 "data/maps/NewBirchsLab/scripts.pory"
+# 624 "data/maps/NewBirchsLab/scripts.pory"
 	.string "You did not choose this Pokemon.$"
 
 NewBirchsLab_NotYet::
-# 547 "data/maps/NewBirchsLab/scripts.pory"
+# 628 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Better not touch these yet!\p"
 	.string "Maybe you should talk to {RIVAL}.$"
 
 NewBirchsLab_WelcomePlayerMale::
-# 552 "data/maps/NewBirchsLab/scripts.pory"
+# 633 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Hello there! I'm Prof. Birch, and you\n"
 	.string "must be {PLAYER}. You just missed\l"
 	.string "{RIVAL}, she stopped by and grabbed\l"
@@ -1252,7 +1442,7 @@ NewBirchsLab_WelcomePlayerMale::
 	.string "ask me if you want to change them.$"
 
 NewBirchsLab_WelcomePlayerFemale::
-# 576 "data/maps/NewBirchsLab/scripts.pory"
+# 657 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Hello there! I'm Prof. Birch, and you\n"
 	.string "must be {PLAYER}. You just missed\l"
 	.string "{RIVAL}, he stopped by and grabbed\l"
@@ -1276,7 +1466,7 @@ NewBirchsLab_WelcomePlayerFemale::
 	.string "ask me if you want to change them.$"
 
 NewBirchsLab_WelcomePlayerMaleMonotype::
-# 600 "data/maps/NewBirchsLab/scripts.pory"
+# 681 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Hello there! I'm Prof. Birch, and you\n"
 	.string "must be {PLAYER}. You just missed\l"
 	.string "{RIVAL}, she stopped by and grabbed\l"
@@ -1300,7 +1490,7 @@ NewBirchsLab_WelcomePlayerMaleMonotype::
 	.string "ask me if you want to change them.$"
 
 NewBirchsLab_WelcomePlayerFemaleMonotype::
-# 624 "data/maps/NewBirchsLab/scripts.pory"
+# 705 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Hello there! I'm Prof. Birch, and you\n"
 	.string "must be {PLAYER}. You just missed\l"
 	.string "{RIVAL}, he stopped by and grabbed\l"
@@ -1324,61 +1514,71 @@ NewBirchsLab_WelcomePlayerFemaleMonotype::
 	.string "ask me if you want to change them.$"
 
 NewBirchsLab_Route103PlayerMale::
-# 648 "data/maps/NewBirchsLab/scripts.pory"
+# 729 "data/maps/NewBirchsLab/scripts.pory"
 	.string "{RIVAL} yelled she was heading to\n"
 	.string "Route 103 as she ran out the door,\l"
 	.string "perhaps you should look for her there.$"
 
 NewBirchsLab_Route103PlayerFemale::
-# 655 "data/maps/NewBirchsLab/scripts.pory"
+# 736 "data/maps/NewBirchsLab/scripts.pory"
 	.string "{RIVAL} yelled he was heading to\n"
 	.string "Route 103 as he ran out the door,\l"
 	.string "perhaps you should look for him there.$"
 
 NewBirchsLab_RivalStarterTreeckoPlayerMale::
-# 662 "data/maps/NewBirchsLab/scripts.pory"
+# 743 "data/maps/NewBirchsLab/scripts.pory"
 	.string "A great choice, but also an unlucky one!\n"
 	.string "{RIVAL} chose a Treecko as\l"
 	.string "her Starter!$"
 
 NewBirchsLab_RivalStarterTreeckoPlayerFemale::
-# 669 "data/maps/NewBirchsLab/scripts.pory"
+# 750 "data/maps/NewBirchsLab/scripts.pory"
 	.string "A great choice, but also an unlucky one!\n"
 	.string "{RIVAL} chose a Treecko as\l"
 	.string "his Starter!$"
 
 NewBirchsLab_RivalStarterMudkipPlayerMale::
-# 676 "data/maps/NewBirchsLab/scripts.pory"
+# 757 "data/maps/NewBirchsLab/scripts.pory"
 	.string "A great choice, but also an unlucky one!\n"
 	.string "{RIVAL} chose a Mudkip as\l"
 	.string "her Starter!$"
 
 NewBirchsLab_RivalStarterMudkipPlayerFemale::
-# 683 "data/maps/NewBirchsLab/scripts.pory"
+# 764 "data/maps/NewBirchsLab/scripts.pory"
 	.string "A great choice, but also an unlucky one!\n"
 	.string "{RIVAL} chose a Mudkip as\l"
 	.string "his Starter!$"
 
 NewBirchsLab_RivalStarterTorchicPlayerMale::
-# 690 "data/maps/NewBirchsLab/scripts.pory"
+# 771 "data/maps/NewBirchsLab/scripts.pory"
 	.string "A great choice, but also an unlucky one!\n"
 	.string "{RIVAL} chose a Torchic as\l"
 	.string "her Starter!$"
 
 NewBirchsLab_RivalStarterTorchicPlayerFemale::
-# 697 "data/maps/NewBirchsLab/scripts.pory"
+# 778 "data/maps/NewBirchsLab/scripts.pory"
 	.string "A great choice, but also an unlucky one!\n"
 	.string "{RIVAL} chose a Torchic as\l"
 	.string "his Starter!$"
 
+NewBirchsLab_RivalStarterSprigatitoPlayerMale::
+# 785 "data/maps/NewBirchsLab/scripts.pory"
+	.string "Yeah, {RIVAL} chose a Sprigatito as\l"
+	.string "her Starter. Good Luck.$"
+
+NewBirchsLab_RivalStarterSprigatitoPlayerFemale::
+# 791 "data/maps/NewBirchsLab/scripts.pory"
+	.string "Yeah, {RIVAL} chose a Sprigatito as\l"
+	.string "his Starter. Good Luck.$"
+
 NewBirchsLab_ChangeStarters::
-# 704 "data/maps/NewBirchsLab/scripts.pory"
+# 797 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Which Generation of Starters would you\n"
 	.string "like to see? You can change\l"
 	.string "Generations as many times as you want.$"
 
 NewBirchsLab_ChangeStartersMonotypes::
-# 710 "data/maps/NewBirchsLab/scripts.pory"
+# 803 "data/maps/NewBirchsLab/scripts.pory"
 	.string "Which Type of Starters would you\n"
 	.string "like to see? You can change\l"
 	.string "Types as many times as you want.$"

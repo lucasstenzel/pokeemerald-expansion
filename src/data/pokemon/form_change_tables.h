@@ -263,6 +263,15 @@ static const struct FormChange sSceptileFormChangeTable[] = {
 };
 #endif //P_FAMILY_TREECKO
 
+#if P_FAMILY_SPRIGATITO
+static const struct FormChange sMeowscaradaFormChangeTable[] = {
+#if P_MEGA_EVOLUTIONS
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_MEOWSCARADA_MEGA, ITEM_MEOWSCARADITE},
+#endif
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_SPRIGATITO
+
 #if P_FAMILY_TORCHIC
 static const struct FormChange sBlazikenFormChangeTable[] = {
 #if P_MEGA_EVOLUTIONS

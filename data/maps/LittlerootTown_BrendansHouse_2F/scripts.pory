@@ -355,6 +355,7 @@ CheatCodeMegaStones::
 	giveitemfast ITEM_HOUNDOOMINITE
 	giveitemfast ITEM_TYRANITARITE
 	giveitemfast ITEM_SCEPTILITE
+	giveitemfast ITEM_MEOWSCARADITE
 	giveitemfast ITEM_BLAZIKENITE
 	giveitemfast ITEM_SWAMPERTITE
 	giveitemfast ITEM_GARDEVOIRITE

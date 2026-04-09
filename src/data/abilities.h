@@ -740,6 +740,13 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 3,
     },
 
+    [ABILITY_GHILLIE_SUIT] =
+    {
+        .name = _("Ghillie Suit"),
+        .description = COMPOUND_STRING("Critical hits deal 2.25x\ninstead of 1.5x. Additionally,\nups resistance to Fire and\nIce moves by 50%."),
+        .aiRating = 7,
+    },
+
     [ABILITY_MAGIC_GUARD] =
     {
         .name = _("Magic Guard"),

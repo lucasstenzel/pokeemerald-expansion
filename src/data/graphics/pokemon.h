@@ -6114,6 +6114,16 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 
+#if P_GENDER_DIFFERENCES
+    const u32 gMonFrontPic_SnorlaxF[] = INCBIN_U32("graphics/pokemon/snorlax/anim_frontf.4bpp.lz");
+#if P_CUSTOM_GENDER_DIFF_ICONS
+    const u8 gMonIcon_SnorlaxF[] = INCBIN_U8("graphics/pokemon/snorlax/iconf.4bpp");
+#endif
+#if OW_POKEMON_OBJECT_EVENTS
+    const u32 gObjectEventPic_SnorlaxF[] = INCBIN_COMP("graphics/pokemon/snorlax/overworldf.4bpp");
+#endif //OW_POKEMON_OBJECT_EVENTS
+#endif //P_GENDER_DIFFERENCES
+
 #if P_GIGANTAMAX_FORMS
     const u32 gMonFrontPic_SnorlaxGmax[] = INCBIN_U32("graphics/pokemon/snorlax/gmax/front.4bpp.lz");
     const u32 gMonBackPic_SnorlaxGmax[] = INCBIN_U32("graphics/pokemon/snorlax/gmax/back.4bpp.lz");
@@ -6127,6 +6137,7 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     // const u32 gShinyOverworldPalette_SnorlaxGmax[] = INCBIN_U32("graphics/pokemon/snorlax/gmax/overworld_shiny.gbapal.lz");
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
+
 #endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_SNORLAX
 
@@ -24715,6 +24726,21 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u32 gShinyOverworldPalette_Meowscarada[] = INCBIN_U32("graphics/pokemon/meowscarada/overworld_shiny.gbapal.lz");
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
+
+#if P_MEGA_EVOLUTIONS
+    const u32 gMonFrontPic_MeowscaradaMega[] = INCBIN_U32("graphics/pokemon/meowscarada/mega/front.4bpp.lz");
+    const u32 gMonPalette_MeowscaradaMega[] = INCBIN_U32("graphics/pokemon/meowscarada/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_MeowscaradaMega[] = INCBIN_U32("graphics/pokemon/meowscarada/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_MeowscaradaMega[] = INCBIN_U32("graphics/pokemon/meowscarada/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_MeowscaradaMega[] = INCBIN_U8("graphics/pokemon/meowscarada/mega/icon.4bpp");
+#if OW_POKEMON_OBJECT_EVENTS
+    // const u32 gObjectEventPic_GarchompMega[] = INCBIN_COMP("graphics/pokemon/garchomp/mega/overworld.4bpp");
+#if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+    // const u32 gOverworldPalette_GarchompMega[] = INCBIN_U32("graphics/pokemon/garchomp/mega/overworld_normal.gbapal.lz");
+    // const u32 gShinyOverworldPalette_GarchompMega[] = INCBIN_U32("graphics/pokemon/garchomp/mega/overworld_shiny.gbapal.lz");
+#endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+#endif //OW_POKEMON_OBJECT_EVENTS
+#endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_SPRIGATITO
 
 #if P_FAMILY_FUECOCO

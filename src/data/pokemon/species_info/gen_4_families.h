@@ -3945,12 +3945,12 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
 #if P_MEGA_EVOLUTIONS
     [SPECIES_GARCHOMP_MEGA] =
     {
-        .baseHP        = 108,
+        .baseHP        = 120,
         .baseAttack    = 170,
         .baseDefense   = 105,
-        .baseSpeed     = 102,
-        .baseSpAttack  = 120,
-        .baseSpDefense = 95,
+        .baseSpeed     = 110,
+        .baseSpAttack  = 80,
+        .baseSpDefense = 105,
         .types = MON_TYPES(TYPE_DRAGON, TYPE_GROUND),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_8) ? 350 : 315,

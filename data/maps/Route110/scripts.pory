@@ -410,6 +410,7 @@ Route110_EventScript_MayBattle::
 	case 0, Route110_EventScript_MayBattleTreecko
 	case 1, Route110_EventScript_MayBattleTorchic
 	case 2, Route110_EventScript_MayBattleMudkip
+	case 3, Route110_EventScript_MayBattleGible
 	end
 
 Route110_EventScript_MayBattleTreecko::
@@ -424,6 +425,11 @@ Route110_EventScript_MayBattleTorchic::
 
 Route110_EventScript_MayBattleMudkip::
 	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_MUDKIP, Route110_Text_MayDefeated
+	goto Route110_EventScript_MayDefeated
+	end
+
+Route110_EventScript_MayBattleGible::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_GIBLE, Route110_Text_MayDefeated
 	goto Route110_EventScript_MayDefeated
 	end
 
@@ -442,6 +448,7 @@ Route110_EventScript_BrendanBattle::
 	case 0, Route110_EventScript_BrendanBattleTreecko
 	case 1, Route110_EventScript_BrendanBattleTorchic
 	case 2, Route110_EventScript_BrendanBattleMudkip
+	case 3, Route110_EventScript_BrendanBattleGible
 	end
 
 Route110_EventScript_BrendanBattleTreecko::
@@ -456,6 +463,11 @@ Route110_EventScript_BrendanBattleTorchic::
 
 Route110_EventScript_BrendanBattleMudkip::
 	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_110_MUDKIP, Route110_Text_BrendanDefeated
+	goto Route110_EventScript_BrendanDefeated
+	end
+
+Route110_EventScript_BrendanBattleGible::
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_110_GIBLE, Route110_Text_BrendanDefeated
 	goto Route110_EventScript_BrendanDefeated
 	end
 
